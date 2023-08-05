@@ -1,0 +1,225 @@
+@import '../../components/Common/Shared/sharedStyles.css';
+@keyframes accessories-fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.accessories-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    margin-top: -256px;
+    min-height: calc(100vh - 500px);
+}
+
+
+
+.accessories-title-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 20px 0;
+}
+
+
+
+
+
+
+
+.accessories-categories, .accessories-product-list {
+    margin-top: 7rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 1rem;
+}
+
+.accessories-category-item {
+    text-decoration: none;
+    color: #333;
+    font-size: 1rem;  /* Decreased font size */
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: accessories-fadeIn 0.5s ease;
+    flex-basis: 20%;
+    margin-bottom: 1rem;
+}
+
+.accessories-category-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.accessories-category-name {
+    text-align: center;
+}
+
+.accessories-category-description {
+    text-align: center;
+    color: #777;
+    margin-bottom: 1rem;
+}
+
+.accessories-category-cta {
+    background-color: #333;
+    color: #fff;
+    padding: 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.accessories-category-cta:hover {
+    background-color: #555;
+}
+
+.accessories-category-item:hover {
+    color: #fff;
+    background-color: #333;
+    border-color: #333;
+    transform: scale(1.05);
+}
+
+.accessories-category-item-active {
+    color: #fff;
+    background-color: #333;
+    border-color: #333;
+}
+
+.accessories-active-category {
+    color: #fff;
+    background-color: #333;
+    border-color: #333;
+}
+
+.accessories-product-item {
+    flex-basis: calc(30% - 1rem);
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 1rem;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.accessories-product-item:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transform: scale(1.1);
+}
+
+.accessories-product-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.accessories-product-name {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.accessories-product-description {
+    font-size: 1rem;
+    color: #777;
+    margin-bottom: 1rem;
+}
+
+.accessories-product-price {
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: bold;
+}
+
+.accessories-product-button {
+    background-color: #333;
+    color: #fff;
+    padding: 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.accessories-product-button:hover {
+    background-color: #555;
+}
+
+.accessories-category-title {
+    text-align: center;
+    font-size: 2.5rem;
+    text-transform: capitalize;
+    font-weight: bold;
+    padding-top: 80px;
+}
+
+.accessories-category-page .accessories-category-item {
+    color: #333;
+    font-size: 0.7rem;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.25rem;
+    background-color: #f6f6f6;
+    margin: 0.5rem;
+    box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
+    flex-basis: 15%;
+    max-width: 150px; /* Limit the width */
+    min-height: 200px; /* Set a minimum height */
+    justify-content: space-between; /* Distribute space evenly */
+}
+
+.accessories-category-page .accessories-category-item .accessories-category-name {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem; /* Add some space at the bottom */
+}
+
+.accessories-category-page .accessories-category-item .accessories-category-image {
+    width: 80%; /* Reduce the size */
+    height: auto;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.product-list.category-product-list {
+    margin-top: 24rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 1rem;
+}
+
+
+
+.accessories-hero {
+    background-image: url('https://i.imgur.com/hrDmZv0.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 97%; /* adjust as needed */
+    height: 200px;
+    margin: 0 auto; /* centers the container */
+    margin-top: 100px;
+}
+
+

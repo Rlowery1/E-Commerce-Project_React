@@ -1,0 +1,64 @@
+.signin-container {
+    width: 400px;
+    margin: 100px auto 50px;
+    font-family: Arial, sans-serif;
+    background: #f3f3f3;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.signin-container h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.signin-container input {
+    width: 90%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.signin-container button {
+    width: 100%;
+    padding: 12px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.signin-container button:hover {
+    background: #0056b3;
+}
+
+.signin-container .signin-error {
+    color: red;
+}
+
+.signin-container .signin-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Align the links evenly */
+    margin-top: 10px; /* Additional spacing between the links */
+}
+
+.signin-container .signin-links a {
+    color: #007bff;
+    text-decoration: none;
+    margin: 5px 0; /* Add vertical margin to separate the links */
+    flex-basis: calc(50% - 10px); /* Divide the links into two columns */
+    text-align: center; /* Center-align the text */
+}
+
+.signin-container .signin-links a:hover {
+    text-decoration: underline;
+}
+

@@ -1,0 +1,377 @@
+.cover-photo {
+    width: 100%;
+    height: 200vh;
+    object-fit: cover;
+    transition: height 2s ease-in-out;
+}
+
+.HomePage {
+    background-color: #ffffff;
+}
+
+
+
+.footer-instance {
+    width: 100%;
+    transition: height 2s ease-in-out;
+    margin-top: -300px; /* This will put whitespace between the footer and the section currently above it */
+}
+
+.spacer {
+    height: 23vh; /*This will adjust the scrolling endpoint height of the footer */
+    transition: height 2s ease-in-out;
+}
+
+
+#our-story {
+    max-width: 800px; /* Adjust as needed */
+    margin: auto; /* This will center the section */
+    padding: 50px 20px; /* This adds some space around the text */
+    text-align: center; /* This will center the text */
+}
+
+#our-story.fade-in {
+    animation: fadeIn ease 2s;
+    -webkit-animation: fadeIn ease 2s;
+    -moz-animation: fadeIn ease 2s;
+    -o-animation: fadeIn ease 2s;
+    -ms-animation: fadeIn ease 2s;
+}
+
+@keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+
+
+
+#collections {
+    max-width: 800px;
+    margin: auto;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.collection {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    margin-bottom: 50px;
+    overflow: hidden; /* This will ensure the image doesn't go outside the container when it scrolls down */
+}
+
+.collection-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.collection-image {
+    position: relative;
+    top: -50%; /* Hide the top part of the image initially */
+    width: 100%;
+    height: 200%; /* Increase the height to compensate for the negative top value */
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out, top 0.3s ease-in-out; /* Add transition for the top property */
+}
+
+.collection-content:hover .collection-image {
+    top: 0; /* Reveal the top part of the image on hover */
+    transform: translateY(0); /* Reset the translateY value on hover */
+}
+
+.collection-image:hover {
+    transform: scale(1.1);
+}
+
+
+
+.collection-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 24px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+
+
+.cover-photo-scrolled {
+    height: 100vh;
+}
+
+.footer-scrolled {
+    bottom: -50vh;
+}
+
+.spacer-scrolled {
+    height: 0;
+}
+
+.collection-container {
+    position: relative;
+    margin-bottom: 100px; /* Adjust as needed */
+    overflow: hidden; /* Add this to hide the button when it's not revealed */
+}
+
+.product-details button {
+    padding: 10px 20px;
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.5s ease-in-out;
+}
+.homepage-signup-button {
+    background-color: black;
+    color: white;
+}
+.homepage-signup-button:hover, .product-details button:hover {
+    transform: scale(1.1);
+}
+
+
+.cta-button {
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    opacity: 0;
+    margin: 1px;
+}
+
+.cta-button:hover {
+    transform: scale(1.1);
+}
+
+.collection-container:hover .cta-button {
+    opacity: 1; /* Add this line */
+}
+
+
+
+
+.collection-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* This makes the overlay semi-transparent */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.collection-content:hover .collection-overlay {
+    opacity: 1; /* This makes the overlay fully visible on hover */
+}
+
+
+.newsletter-signup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f5f5f5;
+    margin: 20px 0;
+}
+
+.newsletter-signup h2 {
+    margin-bottom: 10px;
+}
+
+.newsletter-signup input {
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.newsletter-signup button {
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.newsletter-signup button:hover {
+    transform: scale(1.1);
+    transition: transform 0.5s ease-in-out;
+}
+
+
+.testimonials {
+    max-width: 800px;
+    margin: auto;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.testimonials {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Change from nowrap to wrap */
+    margin: 50px 0;
+}
+
+.testimonials div {
+    width: 100%; /* Change from 50% to 100% */
+    margin: 5px 0; /* Change from 5px 5px to 5px 0 */
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    background-color: #f5f5f5; /* Add a light background color */
+}
+
+.testimonials div:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.testimonials img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.testimonials h3 {
+    margin: 0;
+}
+
+.testimonials p {
+    margin: 0;
+}
+
+
+.group a:not(:last-child) {
+    margin-right: 20px; /* Add space between the icons */
+}
+
+#featured-products,
+#new-arrivals,
+#gallery {
+    max-width: 1200px; /* Increase the max-width for a more spacious layout */
+    margin: auto;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+#featured-products div,
+#new-arrivals div,
+#gallery div {
+    box-shadow: none; /* This will remove the shadow */
+    transition: transform 0.3s ease-in-out;
+}
+
+
+
+#featured-products div:hover,
+#new-arrivals div:hover
+ {
+    transform: translateY(-10px); /* Change to a subtle lift on hover */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); /* Increase the shadow on hover */
+}
+
+/* Add some styling to the product titles and prices */
+#featured-products h3,
+#new-arrivals h3,
+#gallery h3 {
+    font-size: 1.5em;
+    color: #333;
+    margin-top: 10px;
+}
+
+#featured-products div,
+#new-arrivals div
+{
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    margin-bottom: 20px; /* this is to control the picture from covering up view details button */
+}
+
+
+/* Add some styling to the images */
+#featured-products img,
+#new-arrivals img
+ {
+    width: 100%;
+    max-height: 500px; /* Adjust as needed */
+    object-fit: cover;
+}
+
+#gallery div {
+    box-shadow: none; /* Remove box shadow */
+    transition: transform 0.3s ease-in-out;
+}
+
+#gallery div:hover {
+    transform: translateY(-10px); /* Change to a subtle lift on hover */
+    box-shadow: none; /* Remove box shadow on hover */
+}
+
+#gallery img {
+    width: 100%;
+    max-height: 300px; /* Adjust as needed */
+    object-fit: cover;
+}
+
+.fade {
+    transition: opacity 2s ease-out;
+    opacity: 1;
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 2s ease-out;
+}
+
+
+
+.product-price {
+    font-size: 1.5em;
+    color: #333;
+    font-weight: bold;
+}
+
+.product-description {
+    font-size: 1em;
+    color: #666;
+}
+
+.product-button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.product-button:hover {
+    background-color: #666;
+}
+
+.about-us-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+

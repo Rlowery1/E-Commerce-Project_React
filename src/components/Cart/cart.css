@@ -1,0 +1,132 @@
+/* General styling for the cart container */
+.cart-container {
+    margin-top: 80px; /* Space for the header */
+    padding: 20px;
+    max-width: 800px; /* Reduced width for better centering */
+    margin: 80px auto;
+    background-color: #f9f9f9;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Centering the text */
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centering the cart item */
+    border-bottom: 1px solid #e0e0e0;
+    padding: 20px 0;
+}
+
+.cart-item img {
+    width: 100px;
+    margin-right: 20px;
+}
+
+.cart-item h2, .cart-item p {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 10px; /* Added spacing around text */
+}
+
+.cart-item p {
+    font-size: 14px;
+    color: #777;
+}
+
+.cart-item input {
+    width: 50px;
+    text-align: center;
+    margin-left: 10px;
+}
+
+.cart-item button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cart-item button:hover {
+    background-color: #555;
+}
+
+h2 {
+    font-size: 20px;
+    color: #333;
+    margin: 10px 0;
+}
+
+.checkout-button {
+    display: inline-block;
+    background-color: #000;
+    color: #fff;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.3s;
+    margin-top: 20px; /* Added spacing */
+}
+
+.checkout-button:hover {
+    background-color: #333;
+}
+
+.guest-checkout {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.guest-checkout a {
+    text-decoration: underline;
+}
+
+/* Additional section for promotional content or images */
+.promo-section {
+    background-color: #e0e0e0; /* Background color for the section */
+    padding: 40px 20px; /* Padding for spacing */
+    text-align: center; /* Centering the content */
+}
+
+.promo-section img {
+    max-width: 100%;
+    height: auto;
+}
+
+.promo-section h3, .promo-section p {
+    margin: 10px 0;
+}
+
+.promo-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.3s;
+    margin-top: 20px; /* Added spacing */
+}
+
+.promo-button:hover {
+    background-color: #333;
+}
+
+.carousel-image-container {
+    width: 100%; /* Full width */
+    max-width: 600px; /* You can adjust this value */
+    height: 300px; /* You can adjust this value */
+    margin: 0 auto; /* Centering */
+    overflow: hidden; /* Hide anything outside of the container */
+}
+
+.carousel-image-container img {
+    width: 100%; /* Full width of the container */
+    height: 100%; /* Full height of the container */
+    object-fit: cover; /* Maintain aspect ratio */
+}

@@ -1,0 +1,198 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    background-color: #ffffff;
+    padding: 0 20px;
+    z-index: 1000;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.header-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    position: relative;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.cart-popout {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    transform: translateY(-10px);
+    width: 300px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    font-family: "Tenor Sans-Regular", Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.cart-item img {
+    width: 50px; /* Adjust the size of the image */
+    height: 50px;
+}
+
+.cart-item-name {
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.view-cart {
+    display: block;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    margin: 10px 0;
+}
+
+.cart-summary {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.cart-summary-title {
+    color: #333;
+}
+
+.cart-summary-value {
+    color: #000;
+}
+
+/* Add a hover effect for the cart popout */
+.header-right:hover .cart-popout {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition-delay: 0.1s;
+}
+
+.logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 145px;
+    height: 80px;
+}
+
+.search-instance {
+    margin-right: 30px;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    transform: translateY(-10px);
+    width: 200px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    font-family: "Tenor Sans-Regular", Helvetica, sans-serif; /* Add this to match the typography */
+    font-size: 14px; /* Adjust the font size to match the typography */
+    font-weight: 400; /* Adjust the font weight to match the typography */
+    line-height: 20px; /* Adjust the line height to match the typography */
+}
+
+.dropdown-menu a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease, background-color 0.3s ease; /* Add a transition for the background color */
+    padding: 10px 20px;
+}
+
+.dropdown-menu a:hover {
+    color: #000; /* Change the color to black on hover */
+    font-weight: bold; /* Make the font weight bolder on hover */
+    background-color: #f5f5f5;
+}
+
+.header-left:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition-delay: 0.1s;
+}
+
+.dropdown-menu-item {
+    position: relative;
+}
+
+.dropdown-menu-inner {
+    position: absolute;
+    left: 100%;
+    top: 0;
+    width: 200px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    font-family: "Tenor Sans-Regular", Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.dropdown-menu-item:hover .dropdown-menu-inner {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition-delay: 0.1s;
+}
+

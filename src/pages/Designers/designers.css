@@ -1,0 +1,62 @@
+.designers-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    background-color: #fff;
+    margin-top: 80px;
+}
+
+
+.designers-title {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.designers-list {
+    list-style-type: none;
+    padding: 2rem;
+    width: 100%;
+    max-width: 600px;
+    background-color: #121212;  /* Changed to dark theme to match header and footer */
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    color: #fff;  /* Changed text color to white for better contrast */
+}
+
+.designers-item {
+    border-bottom: 1px solid #ddd;
+    padding: 1rem 0;
+    position: relative;
+}
+
+.designers-item:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;  /* Changed to white for better contrast */
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+.designers-item:hover:before {
+    visibility: visible;
+    width: 100%;
+}
+
+.designers-link {
+    text-decoration: none;
+    color: #fff;  /* Changed to white for better contrast */
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.designers-link:hover {
+    color: #eee;  /* Lightened the color for a subtle hover effect */
+    font-size: 1.3rem;
+}

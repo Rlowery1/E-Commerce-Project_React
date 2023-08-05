@@ -1,0 +1,244 @@
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.gifts-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 0;  /* removed padding */
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+    max-width: 1400px;  /* set max width */
+    margin: 0 auto;  /* center the content */
+}
+
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: url('https://i.imgur.com/Qpi7SPR.jpg') no-repeat center;
+    background-size: cover;
+    color: #fff;
+    height: 400px;
+    justify-content: center;
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+.hero-section h1 {
+    font-size: 3em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-section p {
+    font-size: 1.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-top: 10px;
+}
+
+.gifts-collection,
+.new-arrivals-section,
+.recommended-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+    width: 90%;
+    margin-bottom: 50px;
+}
+
+.gift-item,
+.new-arrivals-section .gift-item,
+.recommended-section .gift-item {
+    width: 280px;
+    margin: 10px;
+    padding: 20px;
+    background-color: #212121;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    transition: transform 0.3s ease;
+    color: #fff;
+    position: relative;
+    animation: fadeIn 1s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.gift-item h3,
+.new-arrivals-section .gift-item h3,
+.best-sellers-section .gift-item h3 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    color: #fff;
+    font-size: 1.4em;
+    font-weight: 400;
+
+}
+
+.gift-item p,
+.new-arrivals-section .gift-item p,
+.best-sellers-section .gift-item p {
+    color: #fff;
+    margin-bottom: 10px;
+    font-size: 0.9em;
+    line-height: 1.6;
+}
+
+.gift-item:hover,
+.new-arrivals-section .gift-item:hover,
+.recommended-section .gift-item:hover {
+    transform: scale(1.05);
+}
+
+.gift-item img,
+.new-arrivals-section .gift-item img,
+.recommended-section .gift-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.gift-item button,
+.new-arrivals-section .gift-item button,
+.recommended-section .gift-item button {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;
+    background-color: #fff;
+    color: #212121;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.gift-item button:hover,
+.new-arrivals-section .gift-item button:hover,
+.recommended-section .gift-item button:hover {
+    background-color: #f57c00;
+}
+
+.filters-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px;
+    width: 80%;
+}
+
+.filter {
+    margin: 10px;
+}
+
+.featured-gifts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px;
+    width: 90%;
+}
+
+.featured-gift-item {
+    width: 300px;
+    margin: 20px;
+    padding: 20px;
+    background-color: #212121;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    color: #fff;
+}
+
+.featured-gift-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.testimonials-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px;
+    width: 90%;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.testimonial {
+    width: 300px;
+    margin: 20px;
+    padding: 20px;
+    background-color: #212121;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    color: #fff;
+}
+
+.cta-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    padding: 20px;
+    background-color: #212121;
+    color: #fff;
+    width: 90%;
+    border-radius: 5px;
+}
+
+.cta-section h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.cta-section button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #121212;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cta-section button:hover {
+    background-color: #f57c00;
+}
+
+.section-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;  /* set max width */
+    margin: 20px auto;
+    padding: 0 20px;  /* added horizontal padding */
+}
+
+.gifts-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));  /* use CSS grid for gift items */
+    justify-items: center;
+    gap: 20px;
+    animation: fadeInUp 1s ease;
+    width: 100%;
+}

@@ -1,0 +1,230 @@
+/* src/pages/Shoes/shoes.css */
+@import '../../components/Common/Shared/sharedStyles.css';
+@keyframes shoes-fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.shoes-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    background-color: #fff;
+    margin-top: 80px;
+    min-height: calc(100vh - 300px);
+    justify-content: center;
+}
+
+.shoes-title {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    color: #333;
+    margin-bottom: 1.5rem;
+    padding-top: 80px;
+    text-align: center;
+}
+
+.shoes-hero {
+    background-image: url('https://i.imgur.com/hrDmZv0.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 300px;
+}
+
+.shoes-categories, .shoes-product-list {
+    margin-top: 7rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 1rem;
+}
+
+.shoes-category-item {
+    text-decoration: none;
+    color: #333;
+    font-size: 1rem;  /* Decreased font size */
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: shoes-fadeIn 0.5s ease;
+    flex-basis: 20%;
+    margin-bottom: 1rem;
+}
+
+.shoes-category-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.shoes-category-name {
+    text-align: center;
+}
+
+.shoes-category-description {
+    text-align: center;
+    color: #777;
+    margin-bottom: 1rem;
+}
+
+.shoes-category-cta {
+    background-color: #333;
+    color: #fff;
+    padding: 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.shoes-category-cta:hover {
+    background-color: #555;
+}
+
+.shoes-category-item:hover {
+    color: #fff;
+    background-color: #333;
+    border-color: #333;
+    transform: scale(1.05);
+}
+
+.shoes-category-item-active {
+    color: #fff;
+    background-color: #333;
+    border-color: #333;
+}
+
+.shoes-active-category {
+    color: #fff;
+    background-color: #333;
+    border-color: #333;
+}
+
+.shoes-product-item {
+    flex-basis: calc(30% - 1rem);
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 1rem;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.shoes-product-item:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transform: scale(1.1);
+}
+
+.shoes-product-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.shoes-product-name {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.shoes-product-description {
+    font-size: 1rem;
+    color: #777;
+    margin-bottom: 1rem;
+}
+
+.shoes-product-price {
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: bold;
+}
+
+.shoes-product-button {
+    background-color: #333;
+    color: #fff;
+    padding: 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.shoes-product-button:hover {
+    background-color: #555;
+}
+
+.shoes-category-title {
+    text-align: center;
+    font-size: 2.5rem;
+    text-transform: capitalize;
+    font-weight: bold;
+    padding-top: 80px;
+}
+
+.shoes-category-page .shoes-category-item {
+    color: #333;
+    font-size: 0.7rem;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.25rem;
+    background-color: #f6f6f6;
+    margin: 0.5rem;
+    box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
+    max-width: 150px; /* Limit the width */
+    min-height: 200px; /* Set a minimum height */
+    justify-content: space-between; /* Distribute space evenly */
+    flex-basis: 15%; /* Reset the flex basis */
+    width: 150px; /* Set a fixed width */
+    height: 200px;
+}
+
+.shoes-category-page .shoes-category-item .shoes-category-name {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem; /* Add some space at the bottom */
+    text-align: center;
+}
+
+.shoes-category-page .shoes-category-item .shoes-category-image {
+    width: 80%; /* Reduce the size */
+    height: auto;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.product-list.shoes-category-product-list {
+    margin-top: 7rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 1rem;
+}
+
+.title-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-image: url('https://i.imgur.com/hrDmZv0.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 80px 0;
+}
+

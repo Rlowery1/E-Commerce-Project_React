@@ -1,0 +1,249 @@
+@import 'animate.css';
+
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Fall Collection */
+.fall-collection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #121212;
+    min-height: 590vh;
+}
+
+.fall-collection .hero {
+    margin-top: 80px;
+    position: relative;
+    width: 100%;
+    height: 200vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.fall-collection .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://i.imgur.com/AJ2qJM0.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    z-index: 0;
+    transition: transform 0.2s ease-out;
+}
+
+.fall-collection .hero h1 {
+    z-index: 2;
+    position: relative;
+}
+
+body.fall-collection-page,
+html.fall-collection-page {
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    height: 100%;
+}
+
+/* Remaining CSS Code is same as before */
+.collection-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+    width: 80%;
+}
+
+.collection-item {
+    width: 300px;
+    margin: 20px;
+    padding: 20px;
+    background-color: #212121;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.product-image {
+    width: 100%;
+    height: auto;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+}
+
+.price,
+.description,
+.review {
+    margin: 10px 0;
+}
+
+.add-to-cart-btn {
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #ffffff;
+    color: #121212;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #f57c00;
+}
+
+footer {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    background-color: #212121;
+    color: #fff;
+    margin-top: auto;
+}
+
+.promo-image-left,
+.promo-image-right {
+    flex: 1;
+    height: 300px;
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.promo-image-left {
+    background-image: url('https://i.imgur.com/yxxyyAJ.jpg');
+}
+
+.promo-image-right {
+    background-image: url('https://i.imgur.com/vnuMZxr.jpg');
+}
+
+.testimonials {
+    width: 80%;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.testimonial {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    transition: all 0.5s ease-in-out;
+}
+
+.testimonial:hover {
+    transform: scale(1.03);
+}
+
+.testimonial-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ffffff;
+    margin-bottom: 10px;
+}
+
+.testimonial-name {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.testimonial-position {
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+.testimonial-text {
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+.testimonial-name,
+.testimonial-position,
+.testimonial-text {
+    color: #121212;
+}
+
+.collection-item:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+.collection-item:active {
+    transform: scale(0.98);
+}
+
+.details {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.collection-item:hover .details {
+    opacity: 1;
+}
+
+/* Fall Collection Promotional */
+.promotional.fall {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    padding: 15px 0;
+    background: #121212; /* Dark background color */
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    line-height: 5;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.promotional.fall h2 {
+    flex: 2;
+    text-align: center;
+    margin: 0 245px;
+    color: #ffffff; /* White color for the fall collection */
+}
+
+.promo-image-left.fall,
+.promo-image-right.fall {
+    flex: 1;
+    height: 300px;
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.promo-image-left.fall {
+    background-image: url('https://i.imgur.com/yxxyyAJ.jpg'); /* You might want to change this to a more fall appropriate image */
+}
+
+.promo-image-right.fall {
+    background-image: url('https://i.imgur.com/vnuMZxr.jpg'); /* You might want to change this to a more fall appropriate image */
+}
