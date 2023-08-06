@@ -39,7 +39,7 @@ const ProfileIcon: React.FC<Props> = () => {
 
   return (
     <div className="profile-icon" onClick={toggleProfile}>
-      <div className="profile-image" style={profileImageStyle}></div>
+      <div className="profile-icon-image" style={profileImageStyle}></div>
       {isProfileOpen && (
         <div className="profile-dropdown">
           {isLoggedIn ? (

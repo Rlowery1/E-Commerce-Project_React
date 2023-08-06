@@ -51,15 +51,13 @@ const Header: React.FC<Props> = () => {
           <div className="dropdown-menu">
             <Link to="/">Home</Link>
             <Link to="/new-arrivals">New Arrivals</Link>
-            <div className="dropdown-menu-item" onMouseEnter={toggleCollection} onMouseLeave={toggleCollection}>
+            <div className="dropdown-menu-item">
               <a>Collections</a>
-              {isCollectionOpen && (
-                <div className="dropdown-menu-inner">
-                  <Link to="/fall-collection">Fall</Link>
-                  <Link to="/spring-collection">Spring</Link>
-                  <Link to="/summer-collection">Summer</Link>
-                </div>
-              )}
+              <div className="dropdown-menu-inner">
+                <Link to="/fall-collection">Fall</Link>
+                <Link to="/spring-collection">Spring</Link>
+                <Link to="/summer-collection">Summer</Link>
+              </div>
             </div>
             <Link to="/designers">Designers</Link>
             <Link to="/clothing">Clothing</Link>
