@@ -1,15 +1,15 @@
-// src/components/Accessories Category/accessoryCategories.tsx
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
-// You can add image URL for each category here.
-// Replace 'imageUrlForCategory' with actual image URL.
+const capitalizeFirstLetter = (str: string) => {
+  return str.split(' ').map((word: string) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+};
+
 const categories = [
   {name: 'Watches', imageUrl: 'imageUrlForCategory'},
   {name: 'Sunglasses', imageUrl: 'imageUrlForCategory'},
   {name: 'Belts', imageUrl: 'imageUrlForCategory'},
   {name: 'Hats', imageUrl: 'imageUrlForCategory'},
-  // Add other categories here...
 ];
 
 const AccessoryCategories = ({ showInCategoryPage = false }) => {
@@ -33,11 +33,10 @@ const AccessoryCategories = ({ showInCategoryPage = false }) => {
             className={`category-item ${isActive ? "active-category" : ""}`}
           >
             <img src={category.imageUrl} alt={category.name} className="category-image" />
-            <div className="category-name">{category.name}</div>
+            <div className="category-name">{capitalizeFirstLetter(category.name)}</div> {/* Capitalize category name */}
           </div>
         );
       })}
-
     </div>
   );
 };

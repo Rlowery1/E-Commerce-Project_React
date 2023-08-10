@@ -14,12 +14,23 @@ const SignIn = () => {
     e.preventDefault();
     try {
       await Auth.signIn(username, password);
-      alert("Successfully logged in!"); // Provide success feedback
-      window.location.href = '/';
+      // Get the current authenticated user
+      const user = await Auth.currentAuthenticatedUser();
+      // Get the user's groups from their attributes
+      const userGroups = user.signInUserSession.accessToken.payload["cognito:groups"] || [];
+
+      if (userGroups.includes('Admins')) {
+        // Redirect to Admin Page if the user is part of the Admins group
+        window.location.href = '/admin';
+      } else {
+        // Redirect to the home page for regular users
+        window.location.href = '/';
+      }
     } catch (err: any) {
       setError(err.message);
     }
   };
+
 
   return (
     <div>

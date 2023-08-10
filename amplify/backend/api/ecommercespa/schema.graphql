@@ -1,0 +1,11 @@
+type Product @model @auth(rules: [{ allow: groups, groups: ["Admins"] }]) {
+  id: ID!
+  name: String!
+  description: String!
+  price: Float!
+  imageUrl: String!
+  category: String! # e.g., "Watches", "Shirts", "Shoes"
+  subcategory: String # e.g., "Leather Watches", "Casual Shirts"
+  isNewArrival: Boolean
+  gender: String # e.g., "Male", "Female", "Unisex"
+}

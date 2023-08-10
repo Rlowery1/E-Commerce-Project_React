@@ -3,11 +3,13 @@
     bottom: 0;
     left: 0;
     right: 0;
-    display: compact;
+    display: flex; /* Changed from compact to flex */
     flex-direction: column;
     align-items: center;
     padding: 0;
+    width: 100%; /* Ensuring the footer spans the entire width */
 }
+
 
 .footer .overlap {
     background-color: #c4c4c41a;

@@ -31,6 +31,8 @@ import Account from "../pages/Account/account";
 import MyOrders from "../pages/My Orders/myOrders";
 import Logout from "../pages/Logout/logout";
 import Settings from "../pages/Settings/settings";
+import AdminPage from "../pages/Admin Page/adminPage";
+import AdminRoute from "../components/Routes/adminRoute";
 
 
 // Amplify Configuration
@@ -69,6 +71,7 @@ function App() {
             <Route path="/my-orders" element={<MyOrders />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/logout" element={<Logout />} />
+            <Route path="/admin" element={<AdminRoute />} />
           </Routes>
         </Router>
       </Elements>

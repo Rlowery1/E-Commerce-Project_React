@@ -1,13 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Header from "../../components/Header/header";
 import Footer from "../../components/Footer/footer";
-import { products } from '../../data/clothingMockData';
 import { Title, SubTitle, LargeBodyText, MediumBodyText } from "../../styles/Theme/typography.styles";
 import styled from 'styled-components';
 import Categories from '../../components/Clothing Category/categories';
 import { useDispatch } from 'react-redux';
-import { addToCart as addToCartAction } from '../../redux/actions/cartSlice'; // Alias
+import { addToCart as addToCartAction } from '../../redux/actions/cartSlice';
+import { API, graphqlOperation } from 'aws-amplify';
+import { listProducts } from '../../graphql/queries';
 
 type Product = {
   id: number;
@@ -29,18 +30,29 @@ const CategoryTitle = styled(Title)`
 const Category = () => {
   let { category = '' } = useParams();
   const title = category.replace(/-/g, ' ');
-  category = category.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
-  const categoryProducts = products.filter((product: Product) => product.category.toLowerCase() === category.toLowerCase());
+  category = category.split('-').map(word => word.toLowerCase()).join(' '); // Convert to lowercase
+  category = category.replace(/&/g, 'and');// Convert to lowercase
+  const [categoryProducts, setCategoryProducts] = useState<Product[]>([]);
   const dispatch = useDispatch();
 
   const handleAddToCart = (product: Product) => {
     dispatch(addToCartAction({
       ...product,
       quantity: 1,
-    })); // No need to convert price here
+    }));
+  };
+
+  const fetchClothings = async () => {
+    try {
+      const result: any = await API.graphql(graphqlOperation(listProducts, { filter: { category: { eq: category } } })); // Filter by lowercase category
+      setCategoryProducts(result.data.listProducts.items);
+    } catch (error) {
+      console.error("Error fetching clothings:", error);
+    }
   };
 
   useEffect(() => {
+    fetchClothings();
     window.scrollTo(0, 0);
   }, [category]);
 
