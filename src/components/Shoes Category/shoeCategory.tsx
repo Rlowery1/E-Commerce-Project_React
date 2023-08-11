@@ -12,7 +12,6 @@ import { API, graphqlOperation } from 'aws-amplify';
 import { listProducts } from '../../graphql/queries';
 import { Auth } from 'aws-amplify';
 
-
 type Shoe = {
   id: number;
   name: string;
@@ -34,6 +33,7 @@ const ShoeCategory = () => {
   let { category = '' } = useParams();
   const navigate = useNavigate();
   const title = category.replace(/-/g, ' ');
+  const formattedCategory = category.replace(/-/g, ' ').toLowerCase(); // Replace hyphens and convert to lowercase
   const [categoryProducts, setCategoryProducts] = useState<Shoe[]>([]);
   const dispatch = useDispatch();
 
@@ -55,14 +55,13 @@ const ShoeCategory = () => {
         // User is not authenticated
       }
 
-      const lowercaseCategory = category.toLowerCase(); // Ensure lowercase category
       let nextToken = null;
       let allProducts: Shoe[] = [];
 
       do {
         const result: any = await API.graphql({
           query: listProducts,
-          variables: { filter: { category: { eq: lowercaseCategory } }, nextToken },
+          variables: { filter: { category: { eq: formattedCategory } }, nextToken },
           authMode, // Apply the chosen authentication mode
         });
 
@@ -76,11 +75,6 @@ const ShoeCategory = () => {
       console.error("Error fetching shoes:", error);
     }
   };
-
-
-
-
-
 
   useEffect(() => {
     fetchShoes();
