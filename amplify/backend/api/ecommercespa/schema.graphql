@@ -1,11 +1,17 @@
-type Product @model @auth(rules: [{ allow: groups, groups: ["Admins"] }]) {
+type Product
+@model
+@auth(rules: [
+  { allow: public, operations: [read] }, # Allows unauthenticated read access
+  { allow: private, operations: [read] }, # Allows authenticated users to read
+  { allow: groups, groups: ["Admins"], operations: [create, update, delete] }
+]) {
   id: ID!
   name: String!
   description: String!
   price: Float!
   imageUrl: String!
   category: String! # e.g., "Watches", "Shirts", "Shoes"
-  subcategory: String # e.g., "Leather Watches", "Casual Shirts"
+  subcategory: String
   isNewArrival: Boolean
   gender: String # e.g., "Male", "Female", "Unisex"
 }

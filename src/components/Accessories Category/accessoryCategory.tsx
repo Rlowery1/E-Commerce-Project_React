@@ -9,6 +9,7 @@ import styled from 'styled-components';
 import AccessoryCategories from './accessoryCategories';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../redux/actions/cartSlice';
+import { Auth } from 'aws-amplify';
 
 const capitalizeFirstLetter = (str: string) => {
   return str.split(' ').map((word: string) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
@@ -34,13 +35,11 @@ const CategoryTitle = styled(Title)`
 
 const AccessoryCategory = () => {
   let { category = '' } = useParams();
+  category = category.replace(/-/g, ' ').toLowerCase(); // Convert to lowercase
   const [categoryProducts, setCategoryProducts] = useState<Accessory[]>([]);
   const dispatch = useDispatch();
 
-  const title = category.replace(/-/g, ' ');
-  const displayTitle = capitalizeFirstLetter(title); // Capitalize the title for display
-
-  category = category.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+  const displayTitle = capitalizeFirstLetter(category.replace(/-/g, ' ')); // Capitalize the title for display
 
   // Function to add product to cart
   const addToCartHandler = (product: Accessory) => {
@@ -55,14 +54,28 @@ const AccessoryCategory = () => {
   // Function to fetch products from the database
   const fetchProducts = async () => {
     try {
-      const result: any = await API.graphql(graphqlOperation(listProducts, {
-        filter: { category: { eq: category.toLowerCase() } } // Keep category lowercase for query
-      }));
-      setCategoryProducts(result.data.listProducts.items);
+      let authMode: "API_KEY" | "AMAZON_COGNITO_USER_POOLS" = "API_KEY";
+      let nextToken = null;
+      let allProducts: Accessory[] = [];
+
+      do {
+        const result: any = await API.graphql({
+          query: listProducts,
+          variables: { filter: { category: { eq: category } }, nextToken },
+          authMode,
+        });
+
+        allProducts = allProducts.concat(result.data.listProducts.items);
+        nextToken = result.data.listProducts.nextToken;
+
+      } while (nextToken);
+
+      setCategoryProducts(allProducts);
     } catch (error) {
       console.error("Error fetching products:", error);
     }
   };
+
 
   useEffect(() => {
     window.scrollTo(0, 0);

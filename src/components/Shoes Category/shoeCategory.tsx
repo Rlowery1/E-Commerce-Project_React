@@ -10,6 +10,8 @@ import { useDispatch } from 'react-redux';
 import { addToCart as addToCartAction } from '../../redux/actions/cartSlice';
 import { API, graphqlOperation } from 'aws-amplify';
 import { listProducts } from '../../graphql/queries';
+import { Auth } from 'aws-amplify';
+
 
 type Shoe = {
   id: number;
@@ -32,7 +34,6 @@ const ShoeCategory = () => {
   let { category = '' } = useParams();
   const navigate = useNavigate();
   const title = category.replace(/-/g, ' ');
-  category = category.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
   const [categoryProducts, setCategoryProducts] = useState<Shoe[]>([]);
   const dispatch = useDispatch();
 
@@ -45,12 +46,41 @@ const ShoeCategory = () => {
 
   const fetchShoes = async () => {
     try {
-      const result: any = await API.graphql(graphqlOperation(listProducts, { filter: { category: { eq: category } } }));
-      setCategoryProducts(result.data.listProducts.items);
+      let authMode: "API_KEY" | "AMAZON_COGNITO_USER_POOLS" = "API_KEY"; // Default to API_KEY for unauthenticated users
+
+      try {
+        await Auth.currentAuthenticatedUser();
+        authMode = "AMAZON_COGNITO_USER_POOLS"; // Use Cognito if user is authenticated
+      } catch (userError) {
+        // User is not authenticated
+      }
+
+      const lowercaseCategory = category.toLowerCase(); // Ensure lowercase category
+      let nextToken = null;
+      let allProducts: Shoe[] = [];
+
+      do {
+        const result: any = await API.graphql({
+          query: listProducts,
+          variables: { filter: { category: { eq: lowercaseCategory } }, nextToken },
+          authMode, // Apply the chosen authentication mode
+        });
+
+        allProducts = allProducts.concat(result.data.listProducts.items);
+        nextToken = result.data.listProducts.nextToken;
+
+      } while (nextToken);
+
+      setCategoryProducts(allProducts);
     } catch (error) {
       console.error("Error fetching shoes:", error);
     }
   };
+
+
+
+
+
 
   useEffect(() => {
     fetchShoes();

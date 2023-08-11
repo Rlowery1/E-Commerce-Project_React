@@ -4,13 +4,14 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import '../../pages/Shoes/shoes.css';
 
 const categories = [
-  {name: 'All Shoes', imageUrl: 'imageUrlForAllShoesCategory'},
-  {name: 'Formal Shoes', imageUrl: 'imageUrlForCategory'},
-  {name: 'Casual Shoes', imageUrl: 'imageUrlForCategory'},
-  {name: 'Sports Shoes', imageUrl: 'imageUrlForCategory'},
-  {name: 'Boots', imageUrl: 'imageUrlForCategory'},
+  {name: 'all shoes', imageUrl: 'imageUrlForAllShoesCategory'},
+  {name: 'formal shoes', imageUrl: 'imageUrlForCategory'},
+  {name: 'casual shoes', imageUrl: 'imageUrlForCategory'},
+  {name: 'sports shoes', imageUrl: 'imageUrlForCategory'},
+  {name: 'boots', imageUrl: 'imageUrlForCategory'},
   // Add other categories here...
 ];
+
 
 const ShoeCategories = ({ showInCategoryPage = false }) => {
   const navigate = useNavigate();
@@ -22,7 +23,9 @@ const ShoeCategories = ({ showInCategoryPage = false }) => {
         if (!showInCategoryPage && category.name === 'All Shoes') {
           return null;
         }
-        const to = category.name === 'All Shoes' ? '/shoes' : `/shoes/${category.name.replace(' ', '-').toLowerCase()}`;
+        const to = category.name === 'all shoes'
+          ? '/shoes'
+          : `/shoes/${category.name.replace(' ', '-').toLowerCase()}`;
         const isActive = location.pathname === to;
         return (
           <div

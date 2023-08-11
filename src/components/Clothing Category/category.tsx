@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux';
 import { addToCart as addToCartAction } from '../../redux/actions/cartSlice';
 import { API, graphqlOperation } from 'aws-amplify';
 import { listProducts } from '../../graphql/queries';
+import { Auth } from 'aws-amplify';
 
 type Product = {
   id: number;
@@ -44,12 +45,28 @@ const Category = () => {
 
   const fetchClothings = async () => {
     try {
-      const result: any = await API.graphql(graphqlOperation(listProducts, { filter: { category: { eq: category } } })); // Filter by lowercase category
-      setCategoryProducts(result.data.listProducts.items);
+      let authMode: "API_KEY" | "AMAZON_COGNITO_USER_POOLS" = "API_KEY";
+      let nextToken = null;
+      let allProducts: Product[] = [];
+
+      do {
+        const result: any = await API.graphql({
+          query: listProducts,
+          variables: { filter: { category: { eq: category } }, nextToken },
+          authMode,
+        });
+
+        allProducts = allProducts.concat(result.data.listProducts.items);
+        nextToken = result.data.listProducts.nextToken;
+
+      } while (nextToken);
+
+      setCategoryProducts(allProducts);
     } catch (error) {
       console.error("Error fetching clothings:", error);
     }
   };
+
 
   useEffect(() => {
     fetchClothings();

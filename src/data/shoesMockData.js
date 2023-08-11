@@ -7,7 +7,7 @@ export const shoes = [
         description: `This is a description for Formal Shoe ${i + 1}.`,
         price: `$${(100 + i * 10).toFixed(2)}`,
         imageUrl: 'imageUrlForShoe',
-        category: 'Formal Shoes'
+        category: 'formal shoes'
     })),
     // Casual Shoes
     ...Array.from({ length: 10 }, (_, i) => ({
@@ -16,7 +16,7 @@ export const shoes = [
         description: `This is a description for Casual Shoe ${i + 1}.`,
         price: `$${(80 + i * 10).toFixed(2)}`,
         imageUrl: 'imageUrlForShoe',
-        category: 'Casual Shoes'
+        category: 'casual shoes'
     })),
     // Sports Shoes
     ...Array.from({ length: 10 }, (_, i) => ({
@@ -25,7 +25,7 @@ export const shoes = [
         description: `This is a description for Sports Shoe ${i + 1}.`,
         price: `$${(90 + i * 10).toFixed(2)}`,
         imageUrl: 'imageUrlForShoe',
-        category: 'Sports Shoes'
+        category: 'sports shoes'
     })),
     // Boots
     ...Array.from({ length: 10 }, (_, i) => ({
@@ -34,7 +34,7 @@ export const shoes = [
         description: `This is a description for Boot ${i + 1}.`,
         price: `$${(110 + i * 10).toFixed(2)}`,
         imageUrl: 'imageUrlForShoe',
-        category: 'Boots'
+        category: 'boots'
     })),
     // Other shoes...
 ];

@@ -8,6 +8,13 @@
       "cognitoUserPoolId": "authecommercespafdc6468e"
     },
     "conflictResolution": {},
-    "additionalAuthTypes": []
+    "additionalAuthTypes": [
+      {
+        "mode": "API_KEY",
+        "expirationTime": 90,
+        "apiKeyExpirationDate": "2023-11-09T06:13:04.681Z",
+        "keyDescription": "API for managing and retrieving product information for the online store."
+      }
+    ]
   }
 }
