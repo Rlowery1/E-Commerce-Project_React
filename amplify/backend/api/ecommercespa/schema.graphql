@@ -1,8 +1,8 @@
 type Product
 @model
 @auth(rules: [
-  { allow: public, operations: [read] }, # Allows unauthenticated read access
-  { allow: private, operations: [read] }, # Allows authenticated users to read
+  { allow: public, operations: [read] },
+  { allow: private, operations: [read] },
   { allow: groups, groups: ["Admins"], operations: [create, update, delete] }
 ]) {
   id: ID!
@@ -14,4 +14,5 @@ type Product
   subcategory: String
   isNewArrival: Boolean
   gender: String # e.g., "Male", "Female", "Unisex"
+  seasonalCollection: String # e.g., "Fall", "Spring", "Summer"
 }

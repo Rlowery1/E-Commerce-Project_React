@@ -126,6 +126,7 @@ const AdminPage = () => {
   };
 
 
+
   useEffect(() => {
     fetchProducts();
   }, []);

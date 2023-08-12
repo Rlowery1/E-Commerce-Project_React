@@ -17,6 +17,7 @@ export const createProduct = /* GraphQL */ `
       subcategory
       isNewArrival
       gender
+      seasonalCollection
       createdAt
       updatedAt
       __typename
@@ -38,6 +39,7 @@ export const updateProduct = /* GraphQL */ `
       subcategory
       isNewArrival
       gender
+      seasonalCollection
       createdAt
       updatedAt
       __typename
@@ -59,6 +61,7 @@ export const deleteProduct = /* GraphQL */ `
       subcategory
       isNewArrival
       gender
+      seasonalCollection
       createdAt
       updatedAt
       __typename

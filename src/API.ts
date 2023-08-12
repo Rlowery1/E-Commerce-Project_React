@@ -12,6 +12,7 @@ export type CreateProductInput = {
   subcategory?: string | null,
   isNewArrival?: boolean | null,
   gender?: string | null,
+  seasonalCollection?: string | null,
 };
 
 export type ModelProductConditionInput = {
@@ -23,6 +24,7 @@ export type ModelProductConditionInput = {
   subcategory?: ModelStringInput | null,
   isNewArrival?: ModelBooleanInput | null,
   gender?: ModelStringInput | null,
+  seasonalCollection?: ModelStringInput | null,
   and?: Array< ModelProductConditionInput | null > | null,
   or?: Array< ModelProductConditionInput | null > | null,
   not?: ModelProductConditionInput | null,
@@ -98,6 +100,7 @@ export type Product = {
   subcategory?: string | null,
   isNewArrival?: boolean | null,
   gender?: string | null,
+  seasonalCollection?: string | null,
   createdAt: string,
   updatedAt: string,
 };
@@ -112,6 +115,7 @@ export type UpdateProductInput = {
   subcategory?: string | null,
   isNewArrival?: boolean | null,
   gender?: string | null,
+  seasonalCollection?: string | null,
 };
 
 export type DeleteProductInput = {
@@ -128,6 +132,7 @@ export type ModelProductFilterInput = {
   subcategory?: ModelStringInput | null,
   isNewArrival?: ModelBooleanInput | null,
   gender?: ModelStringInput | null,
+  seasonalCollection?: ModelStringInput | null,
   and?: Array< ModelProductFilterInput | null > | null,
   or?: Array< ModelProductFilterInput | null > | null,
   not?: ModelProductFilterInput | null,
@@ -165,6 +170,7 @@ export type ModelSubscriptionProductFilterInput = {
   subcategory?: ModelSubscriptionStringInput | null,
   isNewArrival?: ModelSubscriptionBooleanInput | null,
   gender?: ModelSubscriptionStringInput | null,
+  seasonalCollection?: ModelSubscriptionStringInput | null,
   and?: Array< ModelSubscriptionProductFilterInput | null > | null,
   or?: Array< ModelSubscriptionProductFilterInput | null > | null,
 };
@@ -233,6 +239,7 @@ export type CreateProductMutation = {
     subcategory?: string | null,
     isNewArrival?: boolean | null,
     gender?: string | null,
+    seasonalCollection?: string | null,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -255,6 +262,7 @@ export type UpdateProductMutation = {
     subcategory?: string | null,
     isNewArrival?: boolean | null,
     gender?: string | null,
+    seasonalCollection?: string | null,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -277,6 +285,7 @@ export type DeleteProductMutation = {
     subcategory?: string | null,
     isNewArrival?: boolean | null,
     gender?: string | null,
+    seasonalCollection?: string | null,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -298,6 +307,7 @@ export type GetProductQuery = {
     subcategory?: string | null,
     isNewArrival?: boolean | null,
     gender?: string | null,
+    seasonalCollection?: string | null,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -323,6 +333,7 @@ export type ListProductsQuery = {
       subcategory?: string | null,
       isNewArrival?: boolean | null,
       gender?: string | null,
+      seasonalCollection?: string | null,
       createdAt: string,
       updatedAt: string,
     } | null >,
@@ -346,6 +357,7 @@ export type OnCreateProductSubscription = {
     subcategory?: string | null,
     isNewArrival?: boolean | null,
     gender?: string | null,
+    seasonalCollection?: string | null,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -367,6 +379,7 @@ export type OnUpdateProductSubscription = {
     subcategory?: string | null,
     isNewArrival?: boolean | null,
     gender?: string | null,
+    seasonalCollection?: string | null,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -388,6 +401,7 @@ export type OnDeleteProductSubscription = {
     subcategory?: string | null,
     isNewArrival?: boolean | null,
     gender?: string | null,
+    seasonalCollection?: string | null,
     createdAt: string,
     updatedAt: string,
   } | null,
