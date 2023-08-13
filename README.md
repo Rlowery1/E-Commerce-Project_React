@@ -45,13 +45,15 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 - [] Clean up the new arrivals page, make it look more professional
 - [] Add more features to the sale page
 - [x] Connect backend to fall, spring, and summer page
-- [] Connect  backend to sale page
+- [x] Connect  backend to sale page
+- [x] Connect backend to gifts page
 - [] Fix cart pop out to only show subtotal
 - [] Connect backend to guest checkout page
 - [] Make the testimonials better for UI/UX
 - [] Add S3 storage for Photos etc.
 - [] Add more features to the account page like change profile picture, make it look more like a dashboard
 - [] Connect settings page to the backend
+- [] Add pages/links for the designers on the designers page
 
 
 ---

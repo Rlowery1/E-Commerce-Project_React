@@ -12,10 +12,14 @@ export const createProduct = /* GraphQL */ `
       name
       description
       price
+      originalPrice
+      salePrice
       imageUrl
       category
       subcategory
       isNewArrival
+      isBestSeller
+      isFeaturedGift
       gender
       seasonalCollection
       createdAt
@@ -34,10 +38,14 @@ export const updateProduct = /* GraphQL */ `
       name
       description
       price
+      originalPrice
+      salePrice
       imageUrl
       category
       subcategory
       isNewArrival
+      isBestSeller
+      isFeaturedGift
       gender
       seasonalCollection
       createdAt
@@ -56,10 +64,14 @@ export const deleteProduct = /* GraphQL */ `
       name
       description
       price
+      originalPrice
+      salePrice
       imageUrl
       category
       subcategory
       isNewArrival
+      isBestSeller
+      isFeaturedGift
       gender
       seasonalCollection
       createdAt

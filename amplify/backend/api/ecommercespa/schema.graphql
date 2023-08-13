@@ -9,10 +9,14 @@ type Product
   name: String!
   description: String!
   price: Float!
+  originalPrice: Float
+  salePrice: Float
   imageUrl: String!
   category: String! # e.g., "Watches", "Shirts", "Shoes"
   subcategory: String
   isNewArrival: Boolean
+  isBestSeller: Boolean
+  isFeaturedGift: Boolean
   gender: String # e.g., "Male", "Female", "Unisex"
   seasonalCollection: String # e.g., "Fall", "Spring", "Summer"
 }

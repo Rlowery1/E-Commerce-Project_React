@@ -44,6 +44,51 @@ const springCollectionMockData = [
   // Add more items as needed...
 ];
 
+const saleItemsMockData = [
+  { id: 1, imageUrl: 'https://i.imgur.com/jNFRfmN.jpg', name: 'Sale Hat', originalPrice: 500, salePrice: 400, description: 'Stylish sale hat', category: 'Hats', seasonalCollection: 'sale collection' },
+  { id: 2, imageUrl: 'https://i.imgur.com/sgvplFV.jpg', name: 'Sale Belt', originalPrice: 200, salePrice: 175, description: 'Elegant sale belt', category: 'Belts', seasonalCollection: 'sale collection' },
+  { id: 3, imageUrl: 'https://i.imgur.com/jNFRfmN.jpg', name: 'Sale Shoes', originalPrice: 600, salePrice: 450, description: 'Comfortable sale shoes', category: 'Shoes', seasonalCollection: 'sale collection' },
+  { id: 4, imageUrl: 'https://i.imgur.com/sgvplFV.jpg', name: 'Sale Watch', originalPrice: 2500, salePrice: 2000, description: 'Luxury sale watch', category: 'Watches', seasonalCollection: 'sale collection' },
+  { id: 5, imageUrl: 'https://i.imgur.com/jNFRfmN.jpg', name: 'Sale Shirt', originalPrice: 700, salePrice: 550, description: 'Casual sale shirt', category: 'Shirts', seasonalCollection: 'sale collection' },
+  { id: 6, imageUrl: 'https://i.imgur.com/sgvplFV.jpg', name: 'Sale Bag', originalPrice: 1500, salePrice: 1150, description: 'Trendy sale bag', category: 'Bags', seasonalCollection: 'sale collection' },
+  { id: 7, imageUrl: 'https://i.imgur.com/jNFRfmN.jpg', name: 'Sale Glasses', originalPrice: 2200, salePrice: 1650, description: 'Chic sale glasses', category: 'Glasses', seasonalCollection: 'sale collection' },
+  { id: 8, imageUrl: 'https://i.imgur.com/sgvplFV.jpg', name: 'Sale Shorts', originalPrice: 1000, salePrice: 750, description: 'Sleek sale shorts', category: 'Shorts', seasonalCollection: 'sale collection' },
+  { id: 9, imageUrl: 'https://i.imgur.com/jNFRfmN.jpg', name: 'Sale Jacket', originalPrice: 1200, salePrice: 900, description: 'Warm sale jacket', category: 'Jackets', seasonalCollection: 'sale collection' },
+  { id: 10, imageUrl: 'https://i.imgur.com/sgvplFV.jpg', name: 'Sale Skirt', originalPrice: 800, salePrice: 600, description: 'Elegant sale skirt', category: 'Skirts', seasonalCollection: 'sale collection' },
+  { id: 11, imageUrl: 'https://i.imgur.com/jNFRfmN.jpg', name: 'Sale Jeans', originalPrice: 900, salePrice: 675, description: 'Stylish sale jeans', category: 'Jeans', seasonalCollection: 'sale collection' },
+  { id: 12, imageUrl: 'https://i.imgur.com/sgvplFV.jpg', name: 'Sale Sunglasses', originalPrice: 300, salePrice: 225, description: 'Trendy sale sunglasses', category: 'Sunglasses', seasonalCollection: 'sale collection' },
+];
+
+const giftsMockData = [
+  { id: 1, name: 'Elegant Watch', price: 250, description: 'A luxurious timepiece', imageUrl: 'https://i.imgur.com/sgvplFV.jpg', category: 'Watches', seasonalCollection: 'Winter', isBestSeller: true, isFeaturedGift: false },
+  { id: 2, name: 'Leather Wallet', price: 85, description: 'A stylish leather wallet', imageUrl: 'https://i.imgur.com/jNFRfmN.jpg', category: 'Accessories', seasonalCollection: 'Summer', isBestSeller: false, isFeaturedGift: true },
+  { id: 3, name: 'Perfume Set', price: 120, description: 'An exotic perfume set', imageUrl: 'https://i.imgur.com/sgvplFV.jpg', category: 'Fragrances', seasonalCollection: 'Spring', isBestSeller: true, isFeaturedGift: true },
+  { id: 4, name: 'Designer Sunglasses', price: 180, description: 'High-end designer sunglasses', imageUrl: 'https://i.imgur.com/jNFRfmN.jpg', category: 'Eyewear', seasonalCollection: 'Summer', isBestSeller: false, isFeaturedGift: false },
+  { id: 5, name: 'Gourmet Chocolate Box', price: 45, description: 'Delicious gourmet chocolates', imageUrl: 'https://i.imgur.com/sgvplFV.jpg', category: 'Edibles', seasonalCollection: 'Any', isBestSeller: true, isFeaturedGift: false },
+  { id: 6, name: 'Spa Gift Basket', price: 100, description: 'Relaxing spa essentials', imageUrl: 'https://i.imgur.com/jNFRfmN.jpg', category: 'Wellness', seasonalCollection: 'Any', isBestSeller: false, isFeaturedGift: true },
+  { id: 7, name: 'Sterling Silver Necklace', price: 200, description: 'Elegant sterling silver necklace', imageUrl: 'https://i.imgur.com/sgvplFV.jpg', category: 'Jewelry', seasonalCollection: 'Winter', isBestSeller: true, isFeaturedGift: true },
+  { id: 8, name: 'Handmade Leather Journal', price: 50, description: 'Crafted leather journal', imageUrl: 'https://i.imgur.com/jNFRfmN.jpg', category: 'Stationery', seasonalCollection: 'Fall', isBestSeller: false, isFeaturedGift: false },
+  { id: 9, name: 'Bluetooth Headphones', price: 150, description: 'Wireless Bluetooth headphones', imageUrl: 'https://i.imgur.com/sgvplFV.jpg', category: 'Electronics', seasonalCollection: 'Any', isBestSeller: true, isFeaturedGift: false },
+  { id: 10, name: 'Fine Wine Collection', price: 180, description: 'A collection of fine wines', imageUrl: 'https://i.imgur.com/jNFRfmN.jpg', category: 'Beverages', seasonalCollection: 'Any', isBestSeller: false, isFeaturedGift: true },
+];
+
+const newArrivalsMockData = [
+  { id: 1, name: 'New Arrival Watch', price: 250, description: 'A luxurious timepiece', imageUrl: 'https://i.imgur.com/sgvplFV.jpg', category: 'Watches', isNewArrival: true },
+  { id: 2, name: 'New Arrival Wallet', price: 85, description: 'A stylish leather wallet', imageUrl: 'https://i.imgur.com/jNFRfmN.jpg', category: 'Accessories', isNewArrival: true },
+  { id: 3, name: 'New Arrival Sunglasses', price: 180, description: 'High-end designer sunglasses', imageUrl: 'https://i.imgur.com/jNFRfmN.jpg', category: 'Eyewear', isNewArrival: true },
+  { id: 4, name: 'New Arrival Jacket', price: 150, description: 'Warm winter jacket', imageUrl: 'https://i.imgur.com/sgvplFV.jpg', category: 'Jackets', isNewArrival: true },
+  { id: 5, name: 'New Arrival Jeans', price: 90, description: 'Stylish blue jeans', imageUrl: 'https://i.imgur.com/jNFRfmN.jpg', category: 'Jeans', isNewArrival: true },
+  { id: 6, name: 'New Arrival Perfume', price: 120, description: 'An exotic perfume set', imageUrl: 'https://i.imgur.com/sgvplFV.jpg', category: 'Fragrances', isNewArrival: true },
+  { id: 7, name: 'New Arrival Necklace', price: 200, description: 'Elegant sterling silver necklace', imageUrl: 'https://i.imgur.com/jNFRfmN.jpg', category: 'Jewelry', isNewArrival: true },
+  { id: 8, name: 'New Arrival Headphones', price: 150, description: 'Wireless Bluetooth headphones', imageUrl: 'https://i.imgur.com/sgvplFV.jpg', category: 'Electronics', isNewArrival: true },
+  { id: 9, name: 'New Arrival Shoes', price: 80, description: 'Comfortable sneakers', imageUrl: 'https://i.imgur.com/jNFRfmN.jpg', category: 'Shoes', isNewArrival: true },
+  { id: 10, name: 'New Arrival Shirt', price: 45, description: 'Casual summer shirt', imageUrl: 'https://i.imgur.com/sgvplFV.jpg', category: 'Shirts', isNewArrival: true }
+  // Add more items as needed...
+];
+
+
+
+
 
 
 const AdminPage = () => {
@@ -175,6 +220,80 @@ const AdminPage = () => {
     }
   };
 
+  const addSaleItemsMockDataToDatabase = async () => {
+    try {
+      console.log("Adding sale items mock data to the database.");
+      for (const product of saleItemsMockData) {
+        console.log("Adding product:", product);
+        await API.graphql(graphqlOperation(createProduct, {
+          input: {
+            name: product.name,
+            description: product.description,
+            price: product.salePrice,
+            originalPrice: product.originalPrice,
+            imageUrl: product.imageUrl,
+            category: product.category,
+            seasonalCollection: product.seasonalCollection,
+          }
+        }));
+      }
+      fetchProducts(); // Refresh products list
+    } catch (error) {
+      console.error("Error adding mock data:", error);
+    }
+  };
+
+  const addGiftsMockDataToDatabase = async () => {
+    try {
+      console.log("Adding gifts mock data to the database.");
+      for (const product of giftsMockData) {
+        console.log("Adding product:", product);
+        await API.graphql(graphqlOperation(createProduct, {
+          input: {
+            name: product.name,
+            description: product.description,
+            price: product.price,
+            imageUrl: product.imageUrl,
+            category: product.category,
+            seasonalCollection: product.seasonalCollection,
+            isBestSeller: product.isBestSeller,
+            isFeaturedGift: product.isFeaturedGift,
+          }
+        }));
+      }
+      fetchProducts(); // Refresh products list
+    } catch (error) {
+      console.error("Error adding mock data:", error);
+    }
+  };
+
+  const addNewArrivalsMockDataToDatabase = async () => {
+    try {
+      console.log("Adding new arrivals mock data to the database.");
+      for (const product of newArrivalsMockData) {
+        console.log("Adding product:", product);
+        await API.graphql(graphqlOperation(createProduct, {
+          input: {
+            name: product.name,
+            description: product.description,
+            price: product.price,
+            imageUrl: product.imageUrl,
+            category: product.category,
+            isNewArrival: product.isNewArrival,
+            // Add other fields as needed...
+          }
+        }));
+      }
+      fetchProducts(); // Refresh products list
+    } catch (error) {
+      console.error("Error adding mock data:", error);
+    }
+  };
+
+
+
+
+
 
 
   useEffect(() => {
@@ -201,6 +320,9 @@ const AdminPage = () => {
         <button onClick={addShoesMockDataToDatabase}>Add Shoes Mock Data to Database</button> {/* New button for shoes */}
         <button onClick={addClothingMockDataToDatabase}>Add Clothing Mock Data to Database</button>
         <button onClick={addSpringCollectionMockDataToDatabase}>Add Spring Collection Mock Data to Database</button>
+        <button onClick={addSaleItemsMockDataToDatabase}>Add Sale Items Mock Data to Database</button>
+        <button onClick={addGiftsMockDataToDatabase}>Add Gifts Mock Data to Database</button>
+        <button onClick={addNewArrivalsMockDataToDatabase}>Add New Arrivals Mock Data to Database</button>
       </div>
       <div>
         {/* Render the products */}

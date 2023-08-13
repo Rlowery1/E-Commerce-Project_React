@@ -15,18 +15,18 @@ type ProductData = {
   imageUrl: string,
   category: string,
   createdAt: string,
-  hoverImage?: string
+  hoverImage?: string,
+  isNewArrival?: boolean // Added the new arrival boolean field
 };
 
-const fetchProducts = async (limit: number) => { // Add limit parameter here
+const fetchProducts = async () => {
   try {
     const result: any = await API.graphql({
       query: listProducts,
-      variables: {
-        limit, // Use the limit provided
-      },
       authMode: "API_KEY",
     });
+
+    console.log("Query result:", result); // Log the entire result
 
     return result.data.listProducts.items as ProductData[];
   } catch (error) {
@@ -35,8 +35,6 @@ const fetchProducts = async (limit: number) => { // Add limit parameter here
   }
 };
 
-
-
 const NewArrivals = () => {
   const dispatch = useDispatch();
   const [latestArrivals, setLatestArrivals] = useState<ProductData[]>([]);
@@ -44,17 +42,19 @@ const NewArrivals = () => {
   const [featuredDesigners, setFeaturedDesigners] = useState<ProductData[]>([]);
 
   useEffect(() => {
-    // Fetch the latest 4 arrivals
-    fetchProducts(6).then((products) => {
-      setLatestArrivals(products.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()));
-    });
-    // Fetch 4 random products for more to explore
-    fetchProducts(6).then((products) => {
-      setMoreToExplore(products.sort(() => Math.random() - 0.5));
-    });
-    // Fetch 4 random products for featured designers
-    fetchProducts(6).then((products) => {
-      setFeaturedDesigners(products.sort(() => Math.random() - 0.5));
+    // Fetch all products
+    fetchProducts().then((products) => {
+      // Sort by createdAt
+      products.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+
+      // Take the top 6 for latest arrivals
+      setLatestArrivals(products.slice(0, 6));
+
+      // Shuffle and take 6 for more to explore
+      setMoreToExplore(products.sort(() => Math.random() - 0.5).slice(0, 6));
+
+      // Shuffle and take 6 for featured designers
+      setFeaturedDesigners(products.sort(() => Math.random() - 0.5).slice(0, 6));
     });
   }, []);
 
@@ -67,10 +67,10 @@ const NewArrivals = () => {
         <h2 className="na-title">{product.name}</h2>
         <p className="na-price">{`$${product.price}`}</p>
         <button onClick={() => dispatch(addToCart({
-          id: Number(product.id), // Convert to number if needed
+          id: Number(product.id),
           name: product.name,
           description: product.description,
-          price: product.price.toString(), // Convert to string if needed
+          price: product.price.toString(),
           imageUrl: product.imageUrl,
           category: product.category,
           quantity: 1

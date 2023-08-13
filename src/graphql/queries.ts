@@ -9,10 +9,14 @@ export const getProduct = /* GraphQL */ `
       name
       description
       price
+      originalPrice
+      salePrice
       imageUrl
       category
       subcategory
       isNewArrival
+      isBestSeller
+      isFeaturedGift
       gender
       seasonalCollection
       createdAt
@@ -33,10 +37,14 @@ export const listProducts = /* GraphQL */ `
         name
         description
         price
+        originalPrice
+        salePrice
         imageUrl
         category
         subcategory
         isNewArrival
+        isBestSeller
+        isFeaturedGift
         gender
         seasonalCollection
         createdAt

@@ -153,7 +153,7 @@ const SpringCollection = () => {
       quantity: 1,
     }));
   };
-console.log("collection test bro",collectionItems)
+console.log("collection test",collectionItems)
 
 
   return (
