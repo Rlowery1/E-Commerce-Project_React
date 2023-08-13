@@ -4,22 +4,41 @@ import Header from '../../components/Header/header';
 import Footer from '../../components/Footer/footer';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../redux/actions/cartSlice';
+import { API } from 'aws-amplify';
+import { listProducts } from '../../graphql/queries';
+
+type CollectionItem = {
+  id: number;
+  image: string;
+  name: string;
+  price: string;
+  description: string;
+  review: string;
+};
+
+const fetchSpringCollection = async () => {
+  try {
+    const result: any = await API.graphql({
+      query: listProducts,
+      variables: {
+        filter: { seasonalCollection: { eq: 'spring collection' } }, // Filter by seasonal collection
+      },
+      authMode: "API_KEY",
+    });
+
+    return result.data.listProducts.items as CollectionItem[];
+  } catch (error) {
+    console.error("Error fetching Fall collection:", error);
+    return [];
+  }
+};
 
 const SpringCollection = () => {
 
   const dispatch = useDispatch();
+  const [collectionItems, setCollectionItems] = useState<CollectionItem[]>([]);
 
-  const collectionItems = [
-    { id: 1, image: 'https://i.imgur.com/jNFRfmN.jpg', name: 'Product 1', price: '$100', description: 'Description 1', review: 'Review 1' },
-    { id: 2, image: 'https://i.imgur.com/sgvplFV.jpg', name: 'Product 2', price: '$120', description: 'Description 2', review: 'Review 2' },
-    { id: 3, image: 'https://i.imgur.com/jNFRfmN.jpg', name: 'Product 3', price: '$90', description: 'Description 3', review: 'Review 3' },
-    { id: 4, image: 'https://i.imgur.com/sgvplFV.jpg', name: 'Product 4', price: '$150', description: 'Description 4', review: 'Review 4' },
-    { id: 5, image: 'https://i.imgur.com/jNFRfmN.jpg', name: 'Product 5', price: '$110', description: 'Description 5', review: 'Review 5' },
-    { id: 6, image: 'https://i.imgur.com/sgvplFV.jpg', name: 'Product 6', price: '$200', description: 'Description 6', review: 'Review 6' },
-    { id: 7, image: 'https://i.imgur.com/jNFRfmN.jpg', name: 'Product 7', price: '$250', description: 'Description 7', review: 'Review 7' },
-    { id: 8, image: 'https://i.imgur.com/sgvplFV.jpg', name: 'Product 8', price: '$300', description: 'Description 8', review: 'Review 8' },
-    // Add more items...
-  ];
+
 
   const testimonials = [
     {
@@ -117,6 +136,12 @@ const SpringCollection = () => {
     };
   }, []);
 
+  useEffect(() => {
+    fetchSpringCollection().then(items => {
+      setCollectionItems(items);
+    });
+  }, []);
+
   const handleAddToCart = (item: any) => { // You may define a proper type for the item
     dispatch(addToCart({
       id: item.id,
@@ -128,7 +153,7 @@ const SpringCollection = () => {
       quantity: 1,
     }));
   };
-
+console.log("collection test bro",collectionItems)
 
 
   return (
@@ -150,7 +175,6 @@ const SpringCollection = () => {
               <h3>{item.name}</h3>
               <p className="price">{item.price}</p>
               <p className="description">{item.description}</p>
-              <p className="review">{`"${item.review}"`}</p>
               <button className="add-to-cart-btn" onClick={() => handleAddToCart(item)}>Add to Cart</button>
             </div>
           </div>

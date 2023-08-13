@@ -1,6 +1,13 @@
-# Getting Started with Create React App
+# E-commerce Men's Fashion 
+This is my first attempt at creating a full stack React Web App from scratch using AWS Amplify to host all my backend and frontend needs.
+## Table Of Contents
+- [Available Scripts](#Available-Scripts)
+- [TODO](#TODO)
+- [Learn More](#Learn-More)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Getting Started
+
+---
 
 ## Available Scripts
 
@@ -14,10 +21,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
@@ -29,18 +32,32 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## TODO
+- [] Get the search icon to be functional
+- [] Make the website mobile responsive
+- [] Clean up te gifts page, make it look more professional
+- [] Make the view details button work on the homepage with a pop out card if the item is selected
+- [] Create an About Us page
+- [] Create a Contact page
+- [] Create a Blog page
+- [] Clean up the new arrivals page, make it look more professional
+- [] Add more features to the sale page
+- [x] Connect backend to fall, spring, and summer page
+- [] Connect  backend to sale page
+- [] Fix cart pop out to only show subtotal
+- [] Connect backend to guest checkout page
+- [] Make the testimonials better for UI/UX
+- [] Add S3 storage for Photos etc.
+- [] Add more features to the account page like change profile picture, make it look more like a dashboard
+- [] Connect settings page to the backend
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
+---
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+

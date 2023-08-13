@@ -7,9 +7,8 @@ import styled from 'styled-components';
 import Categories from '../../components/Clothing Category/categories';
 import { useDispatch } from 'react-redux';
 import { addToCart as addToCartAction } from '../../redux/actions/cartSlice';
-import { API, graphqlOperation } from 'aws-amplify';
+import { API } from 'aws-amplify';
 import { listProducts } from '../../graphql/queries';
-import { Auth } from 'aws-amplify';
 
 type Product = {
   id: number;
