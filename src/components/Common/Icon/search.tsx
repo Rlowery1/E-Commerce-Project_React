@@ -2,9 +2,10 @@ import React from "react";
 
 interface Props {
   className: string;
+  onClick?: () => void;
 }
 
-const Search: React.FC<Props> = ({ className }) => {
+const Search: React.FC<Props> = ({ className, onClick }) => {
   return (
     <svg
       className={`search ${className}`}
@@ -13,6 +14,7 @@ const Search: React.FC<Props> = ({ className }) => {
       viewBox="0 0 24 24"
       width="24"
       xmlns="http://www.w3.org/2000/svg"
+      onClick={onClick} // Add this line to handle the onClick event
     >
       <path
         className="path"

@@ -33,6 +33,7 @@ import Logout from "../pages/Logout/logout";
 import Settings from "../pages/Settings/settings";
 import AdminPage from "../pages/Admin Page/adminPage";
 import AdminRoute from "../components/Routes/adminRoute";
+import ProductDetails from "../components/Product Details/productDetails";
 
 
 // Amplify Configuration
@@ -56,6 +57,7 @@ function App() {
             <Route path="/clothing/:category" element={<Category />} />
             <Route path="/accessories/:category" element={<AccessoryCategory />} />
             <Route path="/accessories" element={<Accessories />} />
+            <Route path="/product/:id" element={<ProductDetails/>} />
             <Route path="/shoes" element={<Shoes />} />
             <Route path="/shoes/:category" element={<ShoeCategory />} />
             <Route path="/sale" element={<Sale />} />

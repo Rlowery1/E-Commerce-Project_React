@@ -19,16 +19,20 @@
 }
 
 .header-center {
+    position: absolute; /* Absolute positioning for logo */
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-grow: 1;
-    position: relative;
+    width: 100%;
 }
 
 .header-right {
     display: flex;
     align-items: center;
+    flex-basis: calc(200px + 60px + 30px + 24px);
 }
 
 .cart-popout {
@@ -108,12 +112,47 @@
 
 .logo {
     position: absolute;
-    top: 50%;
+    top: 40px;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 80px;
     height: auto;
 }
+
+
+.right-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Add this to align items to the right */
+}
+
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+
+.search-input {
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin-right: 10px;
+    width: 200px; /* fixed width */
+    transition: all 0.3s ease;
+    visibility: hidden; /* set to hidden by default */
+}
+
+.search-input.open {
+    visibility: visible; /* set to visible when class is applied */
+}
+
+
+
+.shopping-bag {
+    margin-left: -5px; /* Add some margin to separate the icons */
+}
+
+
 
 .search-instance {
     margin-right: 30px;

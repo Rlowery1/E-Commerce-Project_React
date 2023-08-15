@@ -1,0 +1,44 @@
+.product-page {
+    margin-top: 80px; /* Adjust based on your header height */
+}
+
+.product-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.product-image {
+    max-width: 50%;
+    height: auto;
+    border: 1px solid #ccc;
+}
+
+.product-info {
+    flex: 1;
+    padding: 20px;
+}
+
+.product-name {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.product-description {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.product-price {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.product-loading {
+    text-align: center;
+    font-size: 18px;
+    padding: 20px;
+}
+
+/* You can add styles for other sections like related products, reviews, etc. */
