@@ -12,7 +12,37 @@
     padding: 5px;
     margin-right: 10px;
     width: 100%;
+    min-width: 300px; /* Minimum width to display full placeholder */
+    font-size: 14px; /* Adjust font size if needed */
     transition: all 0.3s ease;
+}
+
+.search-input:hover {
+    /* Optional tooltip on hover */
+    cursor: pointer;
+    position: relative;
+}
+
+.search-input:hover::after {
+    /* Tooltip content */
+    content: "Search by name, description, category, or subcategory...";
+    position: absolute;
+    left: 0;
+    bottom: -30px;
+    background-color: #f9f9f9;
+    padding: 5px;
+    border: 1px solid #ccc;
+    font-size: 12px;
+    white-space: nowrap;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.search-input:hover::after {
+    /* Show tooltip on hover */
+    visibility: visible;
+    opacity: 1;
 }
 
 .search-placeholder {

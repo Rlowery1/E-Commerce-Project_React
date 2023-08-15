@@ -16,7 +16,7 @@ type ProductData = {
   category: string,
   createdAt: string,
   hoverImage?: string,
-  isNewArrival?: boolean // Added the new arrival boolean field
+  isNewArrival?: boolean
 };
 
 const fetchProducts = async () => {
@@ -70,7 +70,7 @@ const NewArrivals = () => {
           id: Number(product.id),
           name: product.name,
           description: product.description,
-          price: product.price.toString(),
+          price: product.price,
           imageUrl: product.imageUrl,
           category: product.category,
           quantity: 1

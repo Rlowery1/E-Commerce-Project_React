@@ -4,7 +4,7 @@ export type CartItem = {
   id: number;
   name: string;
   description: string;
-  price: string;
+  price: number;
   imageUrl: string;
   category: string;
   quantity: number;
@@ -23,7 +23,16 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action: PayloadAction<CartItem>) => {
-      state.items.push(action.payload);
+      // Find the index of the item with the same ID in the cart
+      const index = state.items.findIndex(item => item.id === action.payload.id);
+
+      if (index !== -1) {
+        // If the item already exists, update the quantity
+        state.items[index].quantity += action.payload.quantity;
+      } else {
+        // If the item does not exist, add it as a new item
+        state.items.push(action.payload);
+      }
     },
     removeFromCart: (state, action: PayloadAction<{ id: number }>) => {
       const index = state.items.findIndex(item => item.id === action.payload.id);

@@ -11,7 +11,7 @@ type CollectionItem = {
   id: number;
   image: string;
   name: string;
-  price: string;
+  price: number;
   description: string;
   review: string;
 };
@@ -21,17 +21,23 @@ const fetchFallCollection = async () => {
     const result: any = await API.graphql({
       query: listProducts,
       variables: {
-        filter: { seasonalCollection: { eq: 'fall collection' } }, // Filter by seasonal collection
+        filter: { seasonalCollection: { eq: 'fall collection' } },
       },
       authMode: "API_KEY",
     });
 
-    return result.data.listProducts.items as CollectionItem[];
+    const items = result.data.listProducts.items.map((item: any) => ({
+      ...item,
+      price: parseFloat(item.price.replace('$', '')),
+    }));
+
+    return items as CollectionItem[];
   } catch (error) {
     console.error("Error fetching Fall collection:", error);
     return [];
   }
 };
+
 
 
 const FallCollection = () => {
@@ -138,17 +144,17 @@ const FallCollection = () => {
   }, []);
 
   const handleAddToCart = (item: CollectionItem) => {
-    const price = parseFloat(item.price.replace('$', ''));
     dispatch(addToCart({
       id: item.id,
       name: item.name,
       description: item.description,
-      price: item.price,
+      price: item.price, // Use the price directly
       imageUrl: item.image,
       category: 'Fall Collection',
       quantity: 1,
     }));
   };
+
 
 
 
@@ -173,7 +179,7 @@ const FallCollection = () => {
             <img src={item.image} alt={item.name} className="product-image" />
             <div className="details">
               <h3>{item.name}</h3>
-              <p className="price">{item.price}</p>
+              <p className="price">{`$${item.price.toFixed(2)}`}</p>
               <p className="description">{item.description}</p>
               <button className="add-to-cart-btn" onClick={() => handleAddToCart(item)}>Add to Cart</button>
             </div>

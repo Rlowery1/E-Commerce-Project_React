@@ -16,7 +16,7 @@ type Shoe = {
   id: number;
   name: string;
   description: string;
-  price: string;
+  price: number;
   imageUrl: string;
   category: string;
 };
@@ -65,7 +65,12 @@ const ShoeCategory = () => {
           authMode, // Apply the chosen authentication mode
         });
 
-        allProducts = allProducts.concat(result.data.listProducts.items);
+        allProducts = allProducts.concat(
+          result.data.listProducts.items.map((item: any) => ({
+            ...item,
+            price: parseFloat(item.price.replace('$', '')),
+          }))
+        );
         nextToken = result.data.listProducts.nextToken;
 
       } while (nextToken);
@@ -94,7 +99,7 @@ const ShoeCategory = () => {
             <img src={product.imageUrl} alt={product.name} className="product-image"/>
             <SubTitle>{product.name}</SubTitle>
             <LargeBodyText>{product.description}</LargeBodyText>
-            <MediumBodyText>{product.price}</MediumBodyText>
+            <MediumBodyText>{`$${product.price.toFixed(2)}`}</MediumBodyText>
             <button onClick={() => addToCart(product)} className="product-button">Add to Cart</button>
           </div>
         ))}

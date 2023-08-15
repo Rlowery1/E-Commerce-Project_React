@@ -79,10 +79,16 @@ const SearchBar: React.FC = () => {
       {isSearchOpen && (
         <div className="search-results">
           {searchResults.map(item => (
-            <Link key={item.id} to={`/product/${item.id}`} className="search-result-item">
+            <Link
+              key={item.id}
+              to={`/product/${item.id}`}
+              className="search-result-item"
+              onClick={() => setIsSearchOpen(false)}
+            >
               {item.name}
             </Link>
           ))}
+
         </div>
       )}
     </div>

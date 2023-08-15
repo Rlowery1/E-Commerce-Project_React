@@ -22,8 +22,12 @@ const Header: React.FC<Props> = () => {
 
   const cartItems = useSelector((state: RootState) => state.cart.items);
 
+  // Calculate the total items in the cart
+  const totalItemsInCart = cartItems.reduce((total, item) => total + item.quantity, 0);
+
   // Calculate the Subtotal
-  const subtotal = cartItems.reduce((sum, item) => sum + parseFloat(item.price.replace('$', '')) * item.quantity, 0);
+  const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
 
   // Calculate the Tax (e.g., 10%)
   const taxRate = 0.10;
@@ -78,8 +82,8 @@ const Header: React.FC<Props> = () => {
           <SearchBar />
           <div className="shopping-bag" onClick={toggleCart}>
             <ShoppingBag className="shopping-bag-icon" />
-            {cartItems.length > 0 && (
-              <span className="cart-item-count">{cartItems.length}</span>
+            {totalItemsInCart > 0 && (
+              <span className="cart-item-count">{totalItemsInCart}</span> // Use the totalItemsInCart here
             )}
             {isCartOpen && (
               <div className="cart-popout">

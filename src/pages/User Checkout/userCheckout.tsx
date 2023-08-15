@@ -31,7 +31,7 @@ const UserCheckout = () => {
     phoneNumber: ''
   });
 
-  const subtotal = cartItems.reduce((sum, item) => sum + parseFloat(item.price.replace('$', '')) * item.quantity, 0);
+  const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const taxRate = 0.10;
   const tax = subtotal * taxRate;
   const total = subtotal + tax;

@@ -36,9 +36,8 @@ const Cart = () => {
     dispatch(updateQuantity({ id, quantity }));
   };
 
-  const subtotal = cartItems.reduce((sum: number, item: CartItem) => {
-    return sum + parseFloat(item.price.replace('$', '')) * item.quantity;
-  }, 0);
+  const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
 
   // Calculate Tax (e.g., 10%)
   const taxRate = 0.10;

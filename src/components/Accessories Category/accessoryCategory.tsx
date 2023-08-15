@@ -45,8 +45,7 @@ const AccessoryCategory = () => {
   const addToCartHandler = (product: Accessory) => {
     const productWithNumberIdAndStringPrice = {
       ...product,
-      id: Number(product.id),
-      price: product.price.toFixed(2)
+      id: Number(product.id)
     };
     dispatch(addToCart({ ...productWithNumberIdAndStringPrice, quantity: 1 }));
   };

@@ -1,5 +1,11 @@
+.product-page.fade-in {
+    opacity: 1; /* Fully visible */
+}
+
 .product-page {
     margin-top: 80px; /* Adjust based on your header height */
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease; /* Smooth transition effect */
 }
 
 .product-details {
@@ -7,12 +13,23 @@
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 20px;
+
+}
+
+.product-image-container {
+    max-width: 50%;
+    height: auto;
 }
 
 .product-image {
-    max-width: 50%;
+    max-width: 100%;
     height: auto;
     border: 1px solid #ccc;
+    transition: transform 0.3s ease; /* Smooth image zoom */
+}
+
+.product-image-container:hover .product-image {
+    transform: scale(1.1); /* Zoom effect on hover */
 }
 
 .product-info {
@@ -39,6 +56,45 @@
     text-align: center;
     font-size: 18px;
     padding: 20px;
+    opacity: 0.5; /* Semi-transparent loading text */
 }
 
-/* You can add styles for other sections like related products, reviews, etc. */
+.product-options {
+    display: flex;
+    gap: 10px;
+}
+
+.product-size {
+    padding: 5px;
+    font-size: 14px;
+}
+
+.product-quantity {
+    width: 50px;
+    padding: 5px;
+    font-size: 14px;
+}
+
+.product-total-price {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 5px;
+    color: #333;
+}
+
+
+.add-to-cart-button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart-button:hover {
+    background-color: #555;
+}
+
+
+

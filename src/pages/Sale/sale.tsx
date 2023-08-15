@@ -25,12 +25,13 @@ const Sale = () => {
       id: parseInt(item.id),
       name: item.name,
       description: '',
-      price: `$${item.price}`,
+      price: item.price,
       imageUrl: item.imageUrl,
       category: 'Sale',
       quantity: 1,
     }));
   };
+
 
   const fetchSaleItems = async () => {
     try {
