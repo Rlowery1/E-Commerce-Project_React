@@ -59,3 +59,13 @@
     transform: translateY(0);
     transition-delay: 0.1s;
 }
+
+@media (max-width: 768px) {
+    .profile-icon-image {
+        width: 20px; /* Reduce the width for mobile */
+        height: 20px; /* Reduce the height for mobile */
+        margin-right: 10px; /* Adjust the margin if necessary */
+        margin-left: 10px;
+    }
+}
+

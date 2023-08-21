@@ -5,11 +5,17 @@ import { API } from 'aws-amplify';
 import { listProducts } from '../../graphql/queries';
 import './searchBar.css';
 
-const SearchBar: React.FC = () => {
+
+interface SearchBarProps {
+  onSearchToggle?: (isActive: boolean) => void;
+}
+
+const SearchBar: React.FC<SearchBarProps> = ({ onSearchToggle }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState<any[]>([]);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchError, setSearchError] = useState<string | null>(null);
+
 
   const handleSearchQueryChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const query = e.target.value;
@@ -58,6 +64,7 @@ const SearchBar: React.FC = () => {
       setSearchResults([]); // Clear results when closing the search field
     }
     setIsSearchOpen(!isSearchOpen);
+    onSearchToggle?.(isSearchOpen); // Notify the parent component
   };
 
 

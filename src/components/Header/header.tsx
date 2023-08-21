@@ -19,6 +19,7 @@ const Header: React.FC<Props> = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isCollectionOpen, setIsCollectionOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isSearchActive, setIsSearchActive] = useState(false);
 
   const cartItems = useSelector((state: RootState) => state.cart.items);
 
@@ -46,6 +47,10 @@ const Header: React.FC<Props> = () => {
 
   const toggleCart = () => {
     setIsCartOpen(!isCartOpen);
+  };
+
+  const handleSearchToggle = (isActive: boolean) => {
+    setIsSearchActive(isActive);
   };
 
   return (
@@ -78,8 +83,8 @@ const Header: React.FC<Props> = () => {
       </div>
       <div className="header-right">
         <div className="right-container">
-          <ProfileIcon className="profile-instance" />
-          <SearchBar />
+          <ProfileIcon className={`profile-instance ${isSearchActive ? "hidden" : ""}`} />
+          <SearchBar onSearchToggle={handleSearchToggle} />
           <div className="shopping-bag" onClick={toggleCart}>
             <ShoppingBag className="shopping-bag-icon" />
             {totalItemsInCart > 0 && (

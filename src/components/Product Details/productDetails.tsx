@@ -74,7 +74,7 @@
         }
       };
 
-      
+
 
       fetchProduct();
     }, [id]);

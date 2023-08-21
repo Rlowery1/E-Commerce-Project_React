@@ -10,6 +10,7 @@
     background-color: #ffffff;
     padding: 0 20px;
     z-index: 1000;
+    transition: height 0.3s ease;
 }
 
 .header-left {
@@ -19,20 +20,29 @@
 }
 
 .header-center {
-    position: absolute; /* Absolute positioning for logo */
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, 0);
+    position: static;
+    transform: none;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    padding: 10px 0;
+    flex-grow: 2;
+    text-align: center;
+}
+
+.profile-instance {
+    /* Adjust the size if necessary */
+    width: 24px;
+    height: 24px;
 }
 
 .header-right {
     display: flex;
     align-items: center;
     flex-basis: calc(200px + 60px + 30px + 24px);
+    flex-grow: 1;
+    justify-content: flex-end;
 }
 
 .cart-popout {
@@ -111,12 +121,11 @@
 }
 
 .logo {
-    position: absolute;
-    top: 40px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80px;
+    position: static;
+    transform: none;
+    width: 80px; /* You can adjust this as needed */
     height: auto;
+    margin: 0 auto; /* Center the logo */
 }
 
 
@@ -155,7 +164,7 @@
 
 
 .search-instance {
-    margin-right: 30px;
+    margin-right: 10px;
 }
 
 .dropdown-menu {
@@ -234,5 +243,70 @@
     transform: translateY(0);
     transition-delay: 0.1s;
 }
+
+
+
+/* Responsive styles for smaller screens (you can adjust the breakpoint if needed) */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+        flex-wrap: wrap;
+    }
+
+    .header-left,
+    .header-center,
+    .header-right {
+        flex-basis: 100%; /* Each section takes the full width on small screens */
+        text-align: center; /* Center the content */
+    }
+
+    .logo {
+        width: 50px; /* Smaller logo for mobile */
+    }
+
+    .profile-instance {
+        width: 18px; /* Smaller icon for mobile */
+        height: 18px;
+    }
+
+    .profile-instance.hidden {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+
+    /* Additional space between header left and right */
+    .header-left {
+        margin-bottom: 10px;
+        padding-left: 10px;
+    }
+
+    .header-right {
+        margin-top: 10px;
+        padding-right: 10px;
+    }
+
+    .search-input {
+        width: 80%; /* Full width for mobile */
+        margin-right: 0; /* Remove margin */
+
+    }
+}
+
+
+@media only screen
+and (min-device-width: 428px)
+and (max-device-width: 926px)
+and (-webkit-min-device-pixel-ratio: 3) {
+    .header {
+        padding: 0 10px;
+    }
+    .logo {
+        width: 60px;
+    }
+}
+
 
 

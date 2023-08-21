@@ -58,7 +58,7 @@ const Category = () => {
         allProducts = allProducts.concat(
           result.data.listProducts.items.map((item: any) => ({
             ...item,
-            price: parseFloat(item.price.replace('$', '')),
+            price: parseFloat(item.price.toString().replace('$', '')),
           }))
         );
         nextToken = result.data.listProducts.nextToken;
