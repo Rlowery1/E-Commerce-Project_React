@@ -8,7 +8,7 @@
     align-items: center;
     height: 80px;
     background-color: #ffffff;
-    padding: 0 20px;
+    padding: 0 5px; /* Reduced padding */
     z-index: 1000;
     transition: height 0.3s ease;
 }
@@ -31,18 +31,20 @@
     text-align: center;
 }
 
-.profile-instance {
-    /* Adjust the size if necessary */
-    width: 24px;
+.profile-instance,
+.shopping-bag-icon,
+.search-instance {
+    width: 24px; /* Default size */
     height: 24px;
 }
 
 .header-right {
     display: flex;
     align-items: center;
-    flex-basis: calc(200px + 60px + 30px + 24px);
+    flex-basis: auto;
     flex-grow: 1;
     justify-content: flex-end;
+    padding-right: 5px; /* Increase right padding */
 }
 
 .cart-popout {
@@ -60,7 +62,7 @@
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
     transform: translateY(-10px);
-    width: 300px;
+    width: 100%;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     font-family: "Tenor Sans-Regular", Helvetica, sans-serif;
     font-size: 14px;
@@ -143,12 +145,12 @@
 
 
 .search-input {
-    border: 1px solid #ccc;
-    padding: 5px;
-    margin-right: 10px;
-    width: 200px; /* fixed width */
+    padding: 3px; /* Further reduce padding */
+    margin-right: 3px; /* Further reduce margin */
+    max-width: 160px; /* Further reduce max width */
+    width: 100%;
     transition: all 0.3s ease;
-    visibility: hidden; /* set to hidden by default */
+    visibility: hidden;
 }
 
 .search-input.open {
@@ -158,7 +160,8 @@
 
 
 .shopping-bag {
-    margin-left: -5px; /* Add some margin to separate the icons */
+    margin-left: 0;
+    margin-right: 2px; /* Add some margin to separate the icons */
 }
 
 
@@ -244,69 +247,73 @@
     transition-delay: 0.1s;
 }
 
+.icon-container {
+    display: flex;
+    align-items: center;
+    margin-right: 2px; /* Further reduce margin */
+}
 
-
-/* Responsive styles for smaller screens (you can adjust the breakpoint if needed) */
-@media (max-width: 768px) {
-    .header {
-        flex-direction: column;
-        height: auto;
-        padding: 10px;
-        flex-wrap: wrap;
-    }
-
-    .header-left,
-    .header-center,
-    .header-right {
-        flex-basis: 100%; /* Each section takes the full width on small screens */
-        text-align: center; /* Center the content */
-    }
-
-    .logo {
-        width: 50px; /* Smaller logo for mobile */
-    }
-
-    .profile-instance {
-        width: 18px; /* Smaller icon for mobile */
+@media only screen and (max-width: 580px) {
+    .search-input { width: 70px; }
+    .profile-instance,
+    .shopping-bag-icon,
+    .search-instance {
+        width: 18px;
         height: 18px;
     }
-
-    .profile-instance.hidden {
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
-
-
-    /* Additional space between header left and right */
-    .header-left {
-        margin-bottom: 10px;
-        padding-left: 10px;
-    }
-
-    .header-right {
-        margin-top: 10px;
-        padding-right: 10px;
-    }
-
-    .search-input {
-        width: 80%; /* Full width for mobile */
-        margin-right: 0; /* Remove margin */
-
-    }
+    .logo { width: 35px; }
+    .cart-popout { width: 230px; }
 }
 
+@media only screen and (max-width: 520px) {
+    .search-input { width: 60px; }
+    .profile-instance,
+    .shopping-bag-icon,
+    .search-instance {
+        width: 16px;
+        height: 16px;
+    }
+    .logo { width: 30px; }
+    .cart-popout { width: 210px; }
+}
 
-@media only screen
-and (min-device-width: 428px)
-and (max-device-width: 926px)
-and (-webkit-min-device-pixel-ratio: 3) {
+@media only screen and (max-width: 480px) {
+    .search-input { width: 50px; }
+    .profile-instance,
+    .shopping-bag-icon,
+    .search-instance {
+        width: 14px;
+        height: 14px;
+    }
+    .logo { width: 25px; }
+    .cart-popout { width: 190px; }
+}
+
+@media only screen and (max-width: 510px) {
     .header {
-        padding: 0 10px;
+        padding: 0 2px; /* Further reduced padding */
+    }
+    .search-input {
+        width: 40px; /* Further reduce the width */
+    }
+    .profile-instance,
+    .shopping-bag-icon,
+    .search-instance {
+        width: 12px; /* Further reduce icon sizes */
+        height: 12px;
     }
     .logo {
-        width: 60px;
+        width: 20px; /* Further reduce logo size */
+    }
+    .cart-popout {
+        width: 180px; /* Further reduce popout width */
+    }
+    .search-container,
+    .right-container {
+        display: none; /* Optionally hide certain elements */
     }
 }
+
 
 
 
