@@ -5,6 +5,8 @@
 
 .search-input-container {
     flex-grow: 1;
+    width: 100%;
+    min-width: auto;
 }
 
 .search-input {
@@ -12,9 +14,14 @@
     padding: 5px;
     margin-right: 10px;
     width: 100%;
-    min-width: 300px;
+    min-width: 430px;
     font-size: 14px;
     transition: all 0.3s ease;
+    display: none;
+}
+
+.search-input.active {
+    display: block;
 }
 
 .search-input:hover {
@@ -48,7 +55,7 @@
 }
 
 .search-placeholder.hidden {
-    visibility: hidden;
+    display: none;
 }
 
 .search-error {

@@ -54,8 +54,8 @@ const Header: React.FC<Props> = () => {
   };
 
   return (
-    <div className="header">
-      <div className="header-left" onClick={toggleMenu}>
+    <div className={`header ${isSearchActive ? "search-active" : ""}`}>
+      <div className={`header-left ${isSearchActive ? "fade-out" : "fade-in"}`} onClick={toggleMenu}>
         <Menu className="menu-instance" />
         {isOpen && (
           <div className="dropdown-menu">
@@ -78,12 +78,14 @@ const Header: React.FC<Props> = () => {
           </div>
         )}
       </div>
-      <div className="header-center">
+      <div className={`header-center ${isSearchActive ? "fade-out" : "fade-in"}`}>
         <img src={logoPng} alt="Logo" className="logo" />
       </div>
       <div className="header-right">
         <div className="right-container">
-          <ProfileIcon className={`profile-instance ${isSearchActive ? "hidden" : ""}`} />
+          <div className={`profile-container ${isSearchActive ? "fade-out" : "fade-in"}`}>
+            <ProfileIcon className={`profile-instance`} />
+          </div>
           <SearchBar onSearchToggle={handleSearchToggle} />
           <div className="shopping-bag" onClick={toggleCart}>
             <ShoppingBag className="shopping-bag-icon" />

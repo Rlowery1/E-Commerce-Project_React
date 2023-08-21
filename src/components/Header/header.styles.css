@@ -145,18 +145,20 @@
 
 
 .search-input {
-    padding: 3px; /* Further reduce padding */
-    margin-right: 3px; /* Further reduce margin */
-    max-width: 160px; /* Further reduce max width */
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin-right: 10px;
     width: 100%;
+    min-width: 430px;
+    font-size: 14px;
     transition: all 0.3s ease;
-    visibility: hidden;
+    /*display: none;*/
 }
 
 .search-input.open {
-    visibility: visible; /* set to visible when class is applied */
+    display: block;
+    width: 100%;
 }
-
 
 
 .shopping-bag {
@@ -253,8 +255,18 @@
     margin-right: 2px; /* Further reduce margin */
 }
 
+.header .fade-out {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.header .fade-in {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
 @media only screen and (max-width: 580px) {
-    .search-input { width: 70px; }
+    .search-input { width: 40px; }
     .profile-instance,
     .shopping-bag-icon,
     .search-instance {
@@ -263,7 +275,18 @@
     }
     .logo { width: 35px; }
     .cart-popout { width: 230px; }
+    .profile-icon-image {
+        width: 18px;
+        height: 18px;
+    }
+    .search-input-container {
+        max-width: 180px;
+    }
+    .search-input {
+        font-size: 12px;
+    }
 }
+
 
 @media only screen and (max-width: 520px) {
     .search-input { width: 60px; }
@@ -275,6 +298,15 @@
     }
     .logo { width: 30px; }
     .cart-popout { width: 210px; }
+    .profile-icon-image {
+        width: 16px;
+        height: 16px;
+    }
+    .search-input-container {
+        max-width: 180px;
+    }
+    .search-input { font-size: 12px;
+    }
 }
 
 @media only screen and (max-width: 480px) {
@@ -287,32 +319,66 @@
     }
     .logo { width: 25px; }
     .cart-popout { width: 190px; }
+    .profile-icon-image {
+        width: 14px;
+        height: 14px;
+    }
+    .search-input-container {
+        max-width: 180px;
+    }
+    .search-input { font-size: 12px; }
 }
 
-@media only screen and (max-width: 510px) {
-    .header {
-        padding: 0 2px; /* Further reduced padding */
+
+/* ... Existing CSS ... */
+
+@media only screen and (max-width: 768px) {
+    .header.search-active {
+        position: relative;
     }
+
     .search-input {
-        width: 40px; /* Further reduce the width */
+        display: none; /* Hide by default */
+        position: absolute; /* Absolute positioning */
+        top: 50%; /* Center vertically */
+        left: -810%; /* Align to the left */
+        width: calc(100% - 150px); /* Width adjusted for the right container */
+        z-index: 1010; /* Above other elements */
+        padding: 10px; /* Add padding for appearance */
+        transform: translateY(-50%); /* Adjust for the exact vertical center */
     }
-    .profile-instance,
-    .shopping-bag-icon,
-    .search-instance {
-        width: 12px; /* Further reduce icon sizes */
-        height: 12px;
+
+    .header.search-active .search-input {
+        display: block; /* Display when search is active */
     }
-    .logo {
-        width: 20px; /* Further reduce logo size */
+
+    .search-container {
+        position: relative; /* Relative positioning for the search icon */
     }
-    .cart-popout {
-        width: 180px; /* Further reduce popout width */
+
+    .search-instance { /* Adjust the search icon positioning */
+        position: absolute;
+        right: 10px; /* Position on the right */
+        top: 50%;
+        transform: translateY(-50%); /* Center vertically */
+        width: 20px; /* Adjust size as needed */
+        height: 20px;
+        cursor: pointer; /* Change cursor to pointer */
     }
-    .search-container,
-    .right-container {
-        display: none; /* Optionally hide certain elements */
+
+    .header.search-active .header-left.fade-out,
+    .header.search-active .header-center.fade-out,
+    .header.search-active .profile-container.fade-out {
+        visibility: hidden; /* Hide these elements */
+        pointer-events: none; /* Disable interaction */
     }
 }
+
+
+
+
+
+
 
 
 

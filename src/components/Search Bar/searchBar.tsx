@@ -60,12 +60,11 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearchToggle }) => {
 
 
   const toggleSearch = () => {
-    if (isSearchOpen) {
-      setSearchResults([]); // Clear results when closing the search field
-    }
-    setIsSearchOpen(!isSearchOpen);
-    onSearchToggle?.(isSearchOpen); // Notify the parent component
+    const newSearchState = !isSearchOpen;
+    setIsSearchOpen(newSearchState);
+    onSearchToggle?.(newSearchState); // Notify the parent component
   };
+
 
 
   return (

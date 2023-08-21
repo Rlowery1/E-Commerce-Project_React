@@ -35,6 +35,8 @@ const ProfileIcon: React.FC<Props> = () => {
 
   const profileImageStyle = {
     backgroundImage: `url('${userProfileImage}')`,
+    width: '50px', // Default width
+    height: '50px' // Default height
   };
 
   return (
