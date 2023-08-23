@@ -330,23 +330,22 @@
 }
 
 
-/* ... Existing CSS ... */
 
 @media only screen and (max-width: 768px) {
     .header.search-active {
         position: relative;
     }
 
-    .search-input {
-        display: none; /* Hide by default */
-        position: absolute; /* Absolute positioning */
-        top: 50%; /* Center vertically */
-        left: -810%; /* Align to the left */
-        width: calc(100% - 150px); /* Width adjusted for the right container */
-        z-index: 1010; /* Above other elements */
-        padding: 10px; /* Add padding for appearance */
-        transform: translateY(-50%); /* Adjust for the exact vertical center */
-    }
+    /*.search-input {*/
+    /*    display: none; !* Hide by default *!*/
+    /*    position: absolute; !* Absolute positioning *!*/
+    /*    top: 50%; !* Center vertically *!*/
+    /*    left: -810%; !* Align to the left *!*/
+    /*    width: calc(100% - 150px); !* Width adjusted for the right container *!*/
+    /*    z-index: 1010; !* Above other elements *!*/
+    /*    padding: 10px; !* Add padding for appearance *!*/
+    /*    transform: translateY(-50%); !* Adjust for the exact vertical center *!*/
+    /*}*/
 
     .header.search-active .search-input {
         display: block; /* Display when search is active */
@@ -372,6 +371,12 @@
         visibility: hidden; /* Hide these elements */
         pointer-events: none; /* Disable interaction */
     }
+
+    .header.search-active .search-instance {
+        right: -250px; /* Position on the right */
+    }
+
+
 }
 
 

@@ -72,6 +72,8 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearchToggle }) => {
       <div className="search-input-container">
         <input
           type="text"
+          onFocus={() => console.log('Input focused')}
+          onBlur={() => console.log('Input blurred')}
           placeholder="Search by name, description, category, or subcategory..."
           value={searchQuery}
           onChange={handleSearchQueryChange}
