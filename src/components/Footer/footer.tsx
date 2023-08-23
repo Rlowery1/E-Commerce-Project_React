@@ -1,6 +1,7 @@
 import React from "react";
 import Icon from "../../components/Common/Icon/icon";
 import "./footer.styles.css";
+import {Link} from "react-router-dom";
 
 interface Props {
   className?: string;
@@ -25,9 +26,9 @@ const Footer: React.FC<Props> = ({ className, theme = 'light' }) => {
         </a>
       </div>
 
-      <div className="about">About</div>
-      <div className="contact">Contact</div>
-      <div className="blog">Blog</div>
+      <Link to="/about" className="about-link">About</Link>
+      <Link to="/contact" className="contact">Contact</Link>
+      <Link to="/blog" className="blog">Blog</Link>
       <div className="overlap">
         <p className="copyright">
           Copyright© 2023 Ryan Lowery. All Rights Reserved.

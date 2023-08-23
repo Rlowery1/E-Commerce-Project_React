@@ -87,7 +87,7 @@
 
 
 
-.footer.light-theme .about,
+.footer.light-theme .about-link,
 .footer.light-theme .contact,
 .footer.light-theme .blog {
     color: #555555;
@@ -104,7 +104,7 @@
 }
 
 
-.footer.dark-theme .about,
+.footer.dark-theme .about-link,
 .footer.dark-theme .contact,
 .footer.dark-theme .blog {
     color: #fff;
@@ -113,3 +113,52 @@
     background-color: #121212;
     color: #ffffff;
 }
+
+.about-link {
+    text-decoration: none;
+    font-family: "Tenor Sans-Regular", Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    line-height: 10px;
+    text-align: center;
+    margin-top: 17px;
+}
+
+.about-link:hover {
+    text-decoration: underline;
+}
+
+.footer .contact {
+    font-family: "Tenor Sans-Regular", Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    line-height: 10px;
+    text-align: center;
+    margin-top: 17px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.footer .contact:hover {
+    text-decoration: underline;
+}
+
+.footer .blog {
+    font-family: "Tenor Sans-Regular", Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    line-height: 10px;
+    text-align: center;
+    margin-top: 17px;
+    text-decoration: none;
+color: inherit;
+}
+
+.footer .blog:hover {
+    text-decoration: underline;
+}
+
+

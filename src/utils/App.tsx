@@ -34,6 +34,10 @@ import Settings from "../pages/Settings/settings";
 import AdminPage from "../pages/Admin Page/adminPage";
 import AdminRoute from "../components/Routes/adminRoute";
 import ProductDetails from "../components/Product Details/productDetails";
+import AboutUs from "../pages/About Us/aboutUs";
+import ContactUs from "../pages/Contact Us/contactUs";
+import Blog from "../pages/Blog/blog";
+import BlogPost from "../components/Blog Post/blogPost";
 
 
 // Amplify Configuration
@@ -74,6 +78,10 @@ function App() {
             <Route path="/settings" element={<Settings />} />
             <Route path="/logout" element={<Logout />} />
             <Route path="/admin" element={<AdminRoute />} />
+            <Route path="/about" element={<AboutUs />} />
+            <Route path="/contact" element={<ContactUs />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:postId" element={<BlogPost />} />
           </Routes>
         </Router>
       </Elements>
