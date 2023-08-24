@@ -1,4 +1,3 @@
-// src/pages/Blog/Blog.tsx
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Header from "../../components/Header/header";
@@ -15,7 +14,7 @@ const Blog: React.FC = () => {
 
   useEffect(() => {
     axios
-      .get("https://whale-app-i5fy4.ondigitalocean.app/api/blog-posts") // Update this URL
+      .get("https://whale-app-i5fy4.ondigitalocean.app/api/blog-posts")
       .then((response) => {
         setBlogPosts(response.data.data);
       })
@@ -23,7 +22,6 @@ const Blog: React.FC = () => {
         console.error("An error occurred while fetching blog posts:", error);
       });
   }, []);
-
 
   return (
     <div>
@@ -33,14 +31,20 @@ const Blog: React.FC = () => {
         <p>Discover the latest in men's fashion, trends, and style tips.</p>
       </div>
       <div className="blog-content">
-        {blogPosts.map((post) => (
-          <div className="blog-post" key={post.id}>
-            <img src={post.attributes.image?.url} alt={post.attributes.Title} className="blog-image" />
-            <h2>{post.attributes.Title}</h2>
-            <p>{getShortDescription(post.attributes.Body)}</p> {/* Short description */}
-            <a href={`/blog/${post.id}`} className="read-more">Read More</a>
-          </div>
-        ))}
+        {blogPosts.map((post) => {
+          const imageUrl = post.attributes.image
+            ? `https://whale-app-i5fy4.ondigitalocean.app${post.attributes.image.url}`
+            : '/uploads/blog_Post_1_c9ad86a30e.jpg'; // Adjust this as needed
+
+          return (
+            <div className="blog-post" key={post.id}>
+              <img src={imageUrl} alt={post.attributes.Title} className="blog-image" />
+              <h2>{post.attributes.Title}</h2>
+              <p>{getShortDescription(post.attributes.Body)}</p>
+              <a href={`/blog/${post.id}`} className="read-more">Read More</a>
+            </div>
+          );
+        })}
       </div>
       <Footer />
     </div>
