@@ -9,8 +9,11 @@ const Blog: React.FC = () => {
 
   // Function to extract a short description
   const getShortDescription = (body: string) => {
-    return body.split('\n')[0];
+    const paragraphs = body.split('\n').filter(line => line.trim() !== '');
+    // Skip the image markdown and return the next paragraph
+    return paragraphs.length > 1 ? paragraphs[1] : paragraphs[0];
   };
+
 
   useEffect(() => {
     axios

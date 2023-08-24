@@ -36,7 +36,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ## TODO
 - [x] Get the search icon to be functional
-- [] Make the website mobile responsive
+- [x] Make the website mobile responsive
 - [] Clean up the gifts page, make it look more professional
 - [] Make the view details button work on the homepage with a pop out card if the item is selected
 - [x] Create an About Us page

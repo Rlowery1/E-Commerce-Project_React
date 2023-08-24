@@ -26,10 +26,18 @@ const fetchFallCollection = async () => {
       authMode: "API_KEY",
     });
 
-    const items = result.data.listProducts.items.map((item: any) => ({
-      ...item,
-      price: parseFloat(item.price.replace('$', '')),
-    }));
+    const items = result.data.listProducts.items.map((item: any) => {
+      let price = item.price;
+      if (typeof price === 'string') {
+        price = parseFloat(price.replace('$', ''));
+      }
+
+      return {
+        ...item,
+        price,
+      };
+    });
+
 
     return items as CollectionItem[];
   } catch (error) {
