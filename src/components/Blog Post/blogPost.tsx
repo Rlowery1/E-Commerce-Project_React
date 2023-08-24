@@ -11,12 +11,13 @@ const BlogPost: React.FC = () => {
   const [post, setPost] = useState<any>(null);
 
   useEffect(() => {
-    axios.get(`http://localhost:1337/api/blog-posts/${postId}`)
+    axios.get(`https://whale-app-i5fy4.ondigitalocean.app/api/blog-posts/${postId}`) // Update this URL
       .then(response => {
         setPost(response.data.data);
       })
       .catch(error => console.error("An error occurred while fetching the blog post:", error));
   }, [postId]);
+
 
   if (!post || !post.attributes) return <div className="loading">Loading...</div>;
 

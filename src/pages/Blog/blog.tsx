@@ -15,7 +15,7 @@ const Blog: React.FC = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:1337/api/blog-posts")
+      .get("https://whale-app-i5fy4.ondigitalocean.app/api/blog-posts") // Update this URL
       .then((response) => {
         setBlogPosts(response.data.data);
       })
@@ -23,6 +23,7 @@ const Blog: React.FC = () => {
         console.error("An error occurred while fetching blog posts:", error);
       });
   }, []);
+
 
   return (
     <div>

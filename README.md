@@ -39,9 +39,9 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 - [] Make the website mobile responsive
 - [] Clean up the gifts page, make it look more professional
 - [] Make the view details button work on the homepage with a pop out card if the item is selected
-- [] Create an About Us page
-- [] Create a Contact page
-- [] Create a Blog page
+- [x] Create an About Us page
+- [x] Create a Contact page
+- [x] Create a Blog page
 - [] Clean up the new arrivals page, make it look more professional
 - [] Add more features to the sale page
 - [x] Connect backend to fall, spring, and summer page
