@@ -28,3 +28,87 @@
     padding: 20px;
     border-radius: 10px;
 }
+
+
+.team-section, .vision-mission-section, .cta-section {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.cta-section input {
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.cta-section button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background: #333333;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.cta-section-text {
+    color: #000000;
+}
+
+.team-member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+.team-member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.team-member h3 {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.team-member p {
+    font-size: 16px;
+    color: #777777;
+}
+
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Apply fade-in animation to sections */
+.our-story-section,
+.team-section,
+.vision-mission-section,
+.cta-section {
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Team member hover effect */
+.team-member:hover {
+    transform: scale(1.05); /* Slightly enlarge the team member */
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Button hover effect */
+.cta-section button:hover {
+    background: #444444; /* Slightly darken the background */
+    transition: background 0.3s ease-in-out;
+}
+
+
