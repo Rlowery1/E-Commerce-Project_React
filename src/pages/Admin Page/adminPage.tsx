@@ -86,6 +86,23 @@ const newArrivalsMockData = [
   // Add more items as needed...
 ];
 
+const summerCollectionMockData = [
+  { id: 1, imageUrl: 'https://i.imgur.com/jNFRfmN.jpg', name: 'Summer Hat', price: 400, description: 'Stylish summer hat', category: categories[Math.floor(Math.random() * categories.length)], seasonalCollection: 'summer collection' },
+  { id: 2, imageUrl: 'https://i.imgur.com/sgvplFV.jpg', name: 'Summer Belt', price: 175, description: 'Elegant summer belt', category: categories[Math.floor(Math.random() * categories.length)], seasonalCollection: 'summer collection' },
+  { id: 3, imageUrl: 'https://i.imgur.com/jNFRfmN.jpg', name: 'Summer Shoes', price: 850, description: 'Comfortable summer shoes', category: categories[Math.floor(Math.random() * categories.length)], seasonalCollection: 'summer collection' },
+  { id: 4, imageUrl: 'https://i.imgur.com/sgvplFV.jpg', name: 'Summer Watch', price: 2300, description: 'Luxury summer watch', category: categories[Math.floor(Math.random() * categories.length)], seasonalCollection: 'summer collection' },
+  { id: 5, imageUrl: 'https://i.imgur.com/jNFRfmN.jpg', name: 'Summer Shirt', price: 645, description: 'Casual summer shirt', category: categories[Math.floor(Math.random() * categories.length)], seasonalCollection: 'summer collection' },
+  { id: 6, imageUrl: 'https://i.imgur.com/sgvplFV.jpg', name: 'Summer Bag', price: 1430, description: 'Trendy summer bag', category: categories[Math.floor(Math.random() * categories.length)], seasonalCollection: 'summer collection' },
+  { id: 7, imageUrl: 'https://i.imgur.com/jNFRfmN.jpg', name: 'Summer Glasses', price: 2000, description: 'Chic summer glasses', category: categories[Math.floor(Math.random() * categories.length)], seasonalCollection: 'summer collection' },
+  { id: 8, imageUrl: 'https://i.imgur.com/sgvplFV.jpg', name: 'Summer Shorts', price: 950, description: 'Sleek summer shorts', category: categories[Math.floor(Math.random() * categories.length)], seasonalCollection: 'summer collection' },
+  { id: 9, imageUrl: 'https://i.imgur.com/jNFRfmN.jpg', name: 'Summer Skirt', price: 1200, description: 'Elegant summer skirt', category: categories[Math.floor(Math.random() * categories.length)], seasonalCollection: 'summer collection' },
+  { id: 10, imageUrl: 'https://i.imgur.com/sgvplFV.jpg', name: 'Summer Jacket', price: 1800, description: 'Cool summer jacket', category: categories[Math.floor(Math.random() * categories.length)], seasonalCollection: 'summer collection' },
+];
+
+
+
+
+
 
 
 
@@ -290,6 +307,29 @@ const AdminPage = () => {
     }
   };
 
+  const addSummerCollectionMockDataToDatabase = async () => {
+    try {
+      console.log("Adding summer collection mock data to the database.");
+      for (const product of summerCollectionMockData) {
+        console.log("Adding product:", product);
+        await API.graphql(graphqlOperation(createProduct, {
+          input: {
+            name: product.name,
+            description: product.description,
+            price: product.price,
+            imageUrl: product.imageUrl,
+            category: product.category,
+            seasonalCollection: 'summer collection',
+          }
+        }));
+      }
+      fetchProducts(); // Refresh products list
+    } catch (error) {
+      console.error("Error adding mock data:", error);
+    }
+  };
+
+
 
 
 
@@ -323,6 +363,7 @@ const AdminPage = () => {
         <button onClick={addSaleItemsMockDataToDatabase}>Add Sale Items Mock Data to Database</button>
         <button onClick={addGiftsMockDataToDatabase}>Add Gifts Mock Data to Database</button>
         <button onClick={addNewArrivalsMockDataToDatabase}>Add New Arrivals Mock Data to Database</button>
+        <button onClick={addSummerCollectionMockDataToDatabase}>Add Summer Collection Mock Data to Database</button>
       </div>
       <div>
         {/* Render the products */}

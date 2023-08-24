@@ -10,8 +10,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #0e0e0e;
-    min-height: 590vh;
+    background-color: #121212;
+    min-height: 400vh;
 }
 
 .fall-collection .hero {
@@ -65,11 +65,11 @@ html.fall-collection-page {
     width: 80%;
 }
 
-.collection-item {
+.fall-collection .collection-item {
     width: 300px;
     margin: 20px;
     padding: 20px;
-    background-color: #282828;
+    background-color: #eeeeee;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     text-align: center;
@@ -80,11 +80,11 @@ html.fall-collection-page {
     height: auto;
 }
 
-.details {
+.fall-collection .details {
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: #fff;
+    color: #000000;
     opacity: 1;
 }
 
@@ -105,8 +105,8 @@ html.fall-collection-page {
     transition: background-color 0.3s ease;
 }
 
-.add-to-cart-btn:hover {
-    background-color: #f57c00;
+.fall-collection .add-to-cart-btn:hover {
+    background-color: lightgray;
 }
 
 footer {

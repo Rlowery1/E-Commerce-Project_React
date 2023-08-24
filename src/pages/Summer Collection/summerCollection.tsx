@@ -21,7 +21,7 @@ const fetchSummerCollection = async () => {
     const result: any = await API.graphql({
       query: listProducts,
       variables: {
-        filter: { seasonalCollection: { eq: 'spring collection' } }, // Filter by seasonal collection
+        filter: { seasonalCollection: { eq: 'summer collection' } }, // Filter by seasonal collection
       },
       authMode: "API_KEY",
     });
