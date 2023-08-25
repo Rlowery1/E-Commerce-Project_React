@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { addToCart as addToCartAction } from '../../redux/actions/cartSlice';
 import { API } from 'aws-amplify';
 import { listProducts } from '../../graphql/queries';
+import {Link} from "react-router-dom";
 
 type SaleItem = {
   id: string;
@@ -60,13 +61,15 @@ const Sale = () => {
         <h1>Sale</h1>
         <div className="sale-items">
           {saleItems.map(item => (
-            <div key={item.id} className="sale-item">
-              <img src={item.imageUrl} alt={item.name} className="sale-item-image" />
-              <h2 className="sale-item-name">{item.name}</h2>
-              <p className="sale-item-original-price">Original price: ${item.originalPrice}</p> {/* Adjust if originalPrice is available */}
-              <p className="sale-item-sale-price">Sale price: ${item.price}</p>
-              <button className="sale-item-button" onClick={() => handleAddToCart(item)}>Add to cart</button>
-            </div>
+            <Link to={`/product/${item.id}`} key={item.id} style={{ textDecoration: 'none' }}>  {/* Added Link */}
+              <div className="sale-item">
+                <img src={item.imageUrl} alt={item.name} className="sale-item-image" />
+                <h2 className="sale-item-name">{item.name}</h2>
+                <p className="sale-item-original-price">Original price: ${item.originalPrice}</p> {/* Adjust if originalPrice is available */}
+                <p className="sale-item-sale-price">Sale price: ${item.price}</p>
+                <button onClick={(e) => {e.preventDefault(); handleAddToCart(item);}} className="sale-item-button">Add to cart</button>
+              </div>
+            </Link>
           ))}
         </div>
       </div>
@@ -74,5 +77,6 @@ const Sale = () => {
     </div>
   );
 };
+
 
 export default Sale;

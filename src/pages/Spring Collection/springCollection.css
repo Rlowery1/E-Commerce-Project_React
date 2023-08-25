@@ -221,4 +221,10 @@ footer {
     transform: scale(0.98);
 }
 
+.spring-collection .collection-item a,
+.spring-collection .collection-item a:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
 

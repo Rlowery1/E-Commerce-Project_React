@@ -121,3 +121,10 @@ html.summer-collection-page {
 .add-to-cart-btn:hover {
     background-color: #777777; /* You can adjust the hover color */
 }
+
+.summer-collection .collection-item a,
+.summer-collection .collection-item a:hover {
+    text-decoration: none;
+    color: inherit;
+}
+

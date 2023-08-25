@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 
 const categories = [
   {name: 'Clothing', imageUrl: 'imageUrlForCategory'},
@@ -23,21 +23,16 @@ const Categories = ({ showInCategoryPage = false }) => {
   return (
     <div className={`clothing-categories ${showInCategoryPage ? 'clothing-category-page' : ''}`}>
       {categories.map((category, index) => {
-        // Exclude 'Clothing' category when on main clothing landing page
         if (category.name === 'Clothing' && location.pathname === '/clothing') {
           return null;
         }
         const to = category.name === 'Clothing' ? '/clothing' : `/clothing/${category.name.replace(' ', '-').toLowerCase()}`;
         const isActive = location.pathname === to;
         return (
-          <div
-            key={index}
-            onClick={() => navigate(to)}
-            className={`clothing-category-item ${isActive ? "clothing-active-category" : ""}`}
-          >
+          <Link to={to} key={index} className={`clothing-category-item ${isActive ? "clothing-active-category" : ""}`}> {/* Added Link here */}
             <img src={category.imageUrl} alt={category.name} className="clothing-category-image" />
             <div className="clothing-category-name">{category.name}</div>
-          </div>
+          </Link>
         );
       })}
     </div>

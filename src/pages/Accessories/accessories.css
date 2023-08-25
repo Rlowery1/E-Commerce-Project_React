@@ -203,7 +203,7 @@
 }
 
 .product-list.category-product-list {
-    margin-top: 24rem;
+    margin-top: 10rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -220,6 +220,10 @@
     height: 200px;
     margin: 0 auto; /* centers the container */
     margin-top: 100px;
+}
+
+.category-item, .product-item {
+    text-decoration: none;
 }
 
 

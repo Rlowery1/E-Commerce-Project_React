@@ -103,6 +103,7 @@
     font-size: 1.2rem;
     color: #333;
     margin-bottom: 0.5rem;
+
 }
 
 .product-description {
@@ -177,7 +178,7 @@
 }
 
 .product-list.clothing-category-product-list {
-    margin-top: 7rem;
+    margin-top: 10rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -194,3 +195,11 @@
     background-position: center;
     padding: 80px 0;
 }
+
+
+
+
+
+
+
+

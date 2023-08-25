@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import {Link, useParams} from 'react-router-dom';
 import Header from "../../components/Header/header";
 import Footer from "../../components/Footer/footer";
 import { API, graphqlOperation } from 'aws-amplify';
@@ -84,22 +84,25 @@ const AccessoryCategory = () => {
   return (
     <div>
       <Header />
-      <div className="title-container">
-        <CategoryTitle>{displayTitle}</CategoryTitle> {/* Display the capitalized title */}
-      </div>
+      <div className="accessories-hero"></div>
+      <CategoryTitle>{displayTitle}</CategoryTitle>
       <AccessoryCategories showInCategoryPage={true} />
       <div className="product-list category-product-list">
-        {categoryProducts.map((product: Accessory) => (
-          <div key={product.id} className="product-item">
+    <div className="product-list category-product-list">
+      {categoryProducts.map((product: Accessory) => (
+        <Link to={`/product/${product.id}`} key={product.id} style={{ textDecoration: 'none' }}>
+          <div className="product-item">
             <img src={product.imageUrl} alt={product.name} className="product-image"/>
             <SubTitle>{product.name}</SubTitle>
             <LargeBodyText>{product.description}</LargeBodyText>
-            <MediumBodyText>{product.price.toFixed(2)}</MediumBodyText>
-            <button onClick={() => addToCartHandler(product)} className="product-button">Add to Cart</button>
+            <MediumBodyText>{`$${product.price.toFixed(2)}`}</MediumBodyText>
+            <button onClick={(e) => {e.preventDefault(); addToCartHandler(product);}} className="product-button">Add to Cart</button>
           </div>
-        ))}
-      </div>
+        </Link>
+      ))}
+    </div>
       <Footer theme="light" />
+    </div>
     </div>
   );
 };

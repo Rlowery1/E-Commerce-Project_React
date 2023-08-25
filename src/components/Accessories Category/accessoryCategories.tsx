@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import {useNavigate, useLocation, Link} from 'react-router-dom';
 
 const capitalizeFirstLetter = (str: string) => {
   return str.split(' ').map((word: string) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
@@ -19,22 +19,18 @@ const AccessoryCategories = ({ showInCategoryPage = false }) => {
   return (
     <div className={`accessories-categories ${showInCategoryPage ? 'category-page' : ''}`}>
       {location.pathname !== '/accessories' && (
-        <div onClick={() => navigate('/accessories')} className="category-item">
+        <Link to="/accessories" className="category-item" style={{ textDecoration: 'none' }}>
           <div className="category-name">Accessories</div>
-        </div>
+        </Link>
       )}
       {categories.map((category, index) => {
         const to = `/accessories/${category.name.replace(' ', '-').toLowerCase()}`;
         const isActive = location.pathname === to;
         return (
-          <div
-            key={index}
-            onClick={() => navigate(to)}
-            className={`category-item ${isActive ? "active-category" : ""}`}
-          >
+          <Link to={to} key={index} className={`category-item ${isActive ? "active-category" : ""}`} style={{ textDecoration: 'none' }}>
             <img src={category.imageUrl} alt={category.name} className="category-image" />
-            <div className="category-name">{capitalizeFirstLetter(category.name)}</div> {/* Capitalize category name */}
-          </div>
+            <div className="category-name">{capitalizeFirstLetter(category.name)}</div>
+          </Link>
         );
       })}
     </div>

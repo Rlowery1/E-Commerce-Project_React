@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import {useParams, useNavigate, Link} from 'react-router-dom';
 import Header from "../../components/Header/header";
 import Footer from "../../components/Footer/footer";
 import { Title, SubTitle, LargeBodyText, MediumBodyText } from "../../styles/Theme/typography.styles";
@@ -86,6 +86,7 @@ const ShoeCategory = () => {
     window.scrollTo(0, 0);
   }, [category]);
 
+
   return (
     <div className="product-list shoes-category-product-list">
       <Header />
@@ -95,13 +96,15 @@ const ShoeCategory = () => {
       <ShoeCategories showInCategoryPage={true} />
       <div className="product-list category-product-list">
         {categoryProducts.map((product: Shoe) => (
-          <div key={product.id} className="product-item">
-            <img src={product.imageUrl} alt={product.name} className="product-image"/>
-            <SubTitle>{product.name}</SubTitle>
-            <LargeBodyText>{product.description}</LargeBodyText>
-            <MediumBodyText>{`$${product.price.toFixed(2)}`}</MediumBodyText>
-            <button onClick={() => addToCart(product)} className="product-button">Add to Cart</button>
-          </div>
+          <Link to={`/product/${product.id}`} key={product.id} style={{ textDecoration: 'none' }}>
+            <div className="product-item">
+              <img src={product.imageUrl} alt={product.name} className="product-image"/>
+              <SubTitle>{product.name}</SubTitle>
+              <LargeBodyText>{product.description}</LargeBodyText>
+              <MediumBodyText>{`$${product.price.toFixed(2)}`}</MediumBodyText>
+              <button onClick={(e) => {e.preventDefault(); addToCart(product);}} className="product-button">Add to Cart</button>
+            </div>
+          </Link>
         ))}
       </div>
       <Footer theme="light" />

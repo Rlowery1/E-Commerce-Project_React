@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { addToCart } from '../../redux/actions/cartSlice';
 import { API } from 'aws-amplify';
 import { listProducts } from '../../graphql/queries';
+import { Link } from 'react-router-dom';
 
 type CollectionItem = {
   id: number;
@@ -169,15 +170,17 @@ console.log("collection test",collectionItems)
       </div>
       <div className="collection-list">
         {collectionItems.map(item => (
-          <div className="collection-item" key={item.id}>
-            <img src={item.image} alt={item.name} className="product-image" />
-            <div className="details">
-              <h3>{item.name}</h3>
-              <p className="price">{item.price}</p>
-              <p className="description">{item.description}</p>
-              <button className="add-to-cart-btn" onClick={() => handleAddToCart(item)}>Add to Cart</button>
+          <Link to={`/product/${item.id}`} key={item.id}> {/* Added Link here */}
+            <div className="collection-item">
+              <img src={item.image} alt={item.name} className="product-image" />
+              <div className="details">
+                <h3>{item.name}</h3>
+                <p className="price">{item.price}</p>
+                <p className="description">{item.description}</p>
+                <button className="add-to-cart-btn" onClick={(e) => {e.preventDefault(); handleAddToCart(item);}}>Add to Cart</button>
+              </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
       <div className="testimonials">

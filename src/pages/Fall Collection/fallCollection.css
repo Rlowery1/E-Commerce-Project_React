@@ -248,3 +248,9 @@ footer {
 .promo-image-right.fall {
     background-image: url('https://i.imgur.com/vnuMZxr.jpg'); /* You might want to change this to a more fall appropriate image */
 }
+
+.collection-list a,
+.collection-list a:hover {
+    text-decoration: none;
+    color: inherit;
+}
