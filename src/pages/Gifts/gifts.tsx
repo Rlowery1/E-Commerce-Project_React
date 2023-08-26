@@ -107,7 +107,9 @@ const Gifts = () => {
 
       <section className="cta-section">
         <h2>Don't Wait, Find the Perfect Gift Now</h2>
-        <button>Shop Now</button>
+        <Link to="/new-arrivals" style={{ textDecoration: 'none' }}>
+          <button>Shop Now</button>
+        </Link>
       </section>
 
       <Footer theme="light" />

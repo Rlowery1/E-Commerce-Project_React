@@ -11,7 +11,7 @@ import {Link} from "react-router-dom";
 type SaleItem = {
   id: string;
   name: string;
-  originalPrice?: number; // Adjust this if originalPrice is available in your data
+  originalPrice?: number;
   price: number;
   imageUrl: string;
   seasonalCollection: string;
@@ -20,6 +20,12 @@ type SaleItem = {
 const Sale = () => {
   const [saleItems, setSaleItems] = useState<SaleItem[]>([]);
   const dispatch = useDispatch();
+
+
+  const calculatePercentageSaved = (originalPrice: number, salePrice: number) => {
+    const percentage = ((originalPrice - salePrice) / originalPrice) * 100;
+    return Math.round(percentage);
+  };
 
   const handleAddToCart = (item: SaleItem) => {
     dispatch(addToCartAction({
@@ -57,16 +63,27 @@ const Sale = () => {
   return (
     <div>
       <Header />
+      <div className="limited-time-offer">
+        Limited Time Offer!
+      </div>
       <div className="sale-container">
         <h1>Sale</h1>
+        <div className="most-popular">
+          <h2>Most Popular in Sale</h2>
+        </div>
         <div className="sale-items">
           {saleItems.map(item => (
-            <Link to={`/product/${item.id}`} key={item.id} style={{ textDecoration: 'none' }}>  {/* Added Link */}
+            <Link to={`/product/${item.id}`} key={item.id} style={{ textDecoration: 'none' }}>
               <div className="sale-item">
                 <img src={item.imageUrl} alt={item.name} className="sale-item-image" />
                 <h2 className="sale-item-name">{item.name}</h2>
                 <p className="sale-item-original-price">Original price: ${item.originalPrice}</p> {/* Adjust if originalPrice is available */}
                 <p className="sale-item-sale-price">Sale price: ${item.price}</p>
+                {item.originalPrice && (
+                  <p className="percentage-saved">
+                    Save {calculatePercentageSaved(item.originalPrice, item.price)}%
+                  </p>
+                )}
                 <button onClick={(e) => {e.preventDefault(); handleAddToCart(item);}} className="sale-item-button">Add to cart</button>
               </div>
             </Link>

@@ -4,7 +4,7 @@
     align-items: center;
     padding: 2rem;
     background-color: #fff;
-    margin-top: 80px; /* Add margin top */
+    margin-top: 80px;
 }
 
 .sale-items {
@@ -74,3 +74,24 @@
 .sale-item-button:hover {
     background-color: #555;
 }
+
+.limited-time-offer {
+    background-color: red;
+    color: white;
+    text-align: center;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    margin-top: 80px;
+}
+
+
+
+.percentage-saved {
+    background-color: green;
+    color: white;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
