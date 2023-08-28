@@ -20,3 +20,30 @@ type Product
   gender: String # e.g., "Male", "Female", "Unisex"
   seasonalCollection: String # e.g., "Fall", "Spring", "Summer"
 }
+
+type UserProfile
+@model
+@auth(rules: [
+  { allow: owner, operations: [create, update, delete, read] }
+]) {
+  id: ID!
+  username: String!
+  name: String
+  email: String
+  phone: String
+  address: Address
+  birthDate: String
+  gender: String
+  preferences: [String]
+  profilePic: String
+}
+
+type Address {
+  street: String
+  city: String
+  state: String
+  country: String
+  zipCode: String
+}
+
+

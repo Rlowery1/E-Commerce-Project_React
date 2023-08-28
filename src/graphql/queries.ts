@@ -2,6 +2,68 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const getUserProfile = /* GraphQL */ `
+  query GetUserProfile($id: ID!) {
+    getUserProfile(id: $id) {
+      id
+      username
+      name
+      email
+      phone
+      address {
+        street
+        city
+        state
+        country
+        zipCode
+        __typename
+      }
+      birthDate
+      gender
+      preferences
+      profilePic
+      createdAt
+      updatedAt
+      owner
+      __typename
+    }
+  }
+`;
+export const listUserProfiles = /* GraphQL */ `
+  query ListUserProfiles(
+    $filter: ModelUserProfileFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listUserProfiles(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        username
+        name
+        email
+        phone
+        address {
+          street
+          city
+          state
+          country
+          zipCode
+          __typename
+        }
+        birthDate
+        gender
+        preferences
+        profilePic
+        createdAt
+        updatedAt
+        owner
+        __typename
+      }
+      nextToken
+      __typename
+    }
+  }
+`;
 export const getProduct = /* GraphQL */ `
   query GetProduct($id: ID!) {
     getProduct(id: $id) {

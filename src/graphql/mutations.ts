@@ -80,3 +80,93 @@ export const deleteProduct = /* GraphQL */ `
     }
   }
 `;
+export const createUserProfile = /* GraphQL */ `
+  mutation CreateUserProfile(
+    $input: CreateUserProfileInput!
+    $condition: ModelUserProfileConditionInput
+  ) {
+    createUserProfile(input: $input, condition: $condition) {
+      id
+      username
+      name
+      email
+      phone
+      address {
+        street
+        city
+        state
+        country
+        zipCode
+        __typename
+      }
+      birthDate
+      gender
+      preferences
+      profilePic
+      createdAt
+      updatedAt
+      owner
+      __typename
+    }
+  }
+`;
+export const updateUserProfile = /* GraphQL */ `
+  mutation UpdateUserProfile(
+    $input: UpdateUserProfileInput!
+    $condition: ModelUserProfileConditionInput
+  ) {
+    updateUserProfile(input: $input, condition: $condition) {
+      id
+      username
+      name
+      email
+      phone
+      address {
+        street
+        city
+        state
+        country
+        zipCode
+        __typename
+      }
+      birthDate
+      gender
+      preferences
+      profilePic
+      createdAt
+      updatedAt
+      owner
+      __typename
+    }
+  }
+`;
+export const deleteUserProfile = /* GraphQL */ `
+  mutation DeleteUserProfile(
+    $input: DeleteUserProfileInput!
+    $condition: ModelUserProfileConditionInput
+  ) {
+    deleteUserProfile(input: $input, condition: $condition) {
+      id
+      username
+      name
+      email
+      phone
+      address {
+        street
+        city
+        state
+        country
+        zipCode
+        __typename
+      }
+      birthDate
+      gender
+      preferences
+      profilePic
+      createdAt
+      updatedAt
+      owner
+      __typename
+    }
+  }
+`;

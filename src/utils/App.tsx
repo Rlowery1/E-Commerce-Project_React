@@ -21,11 +21,11 @@ import GuestCheckout from "../pages/Guest Checkout/guestCheckout";
 import {Elements} from "@stripe/react-stripe-js";
 import { loadStripe} from "@stripe/stripe-js";
 import ForgotPassword from "../pages/Forgot Password/forgotPassword";
-import CreateAccount from "../pages/Create Account/createAccount";
+import CreateAccount from "../components/Onboarding Steps/Create Account/createAccount";
 import SignIn from "../../src/pages/Sign-In/signIn";
-import { Amplify } from 'aws-amplify'; // Import Amplify
+import { Amplify } from 'aws-amplify';
 import config from '../aws-exports';
-import PasswordVerification from "../pages/Password Verification/passwordVerification";
+import PasswordVerification from "../components/Onboarding Steps/Password Verification/passwordVerification";
 import UserCheckout from "../pages/User Checkout/userCheckout";
 import Account from "../pages/Account/account";
 import MyOrders from "../pages/My Orders/myOrders";
@@ -38,6 +38,7 @@ import AboutUs from "../pages/About Us/aboutUs";
 import ContactUs from "../pages/Contact Us/contactUs";
 import Blog from "../pages/Blog/blog";
 import BlogPost from "../components/Blog Post/blogPost";
+import EditProfile from "../components/Onboarding Steps/Edit Profile/editProfile";
 
 
 // Amplify Configuration
@@ -69,10 +70,11 @@ function App() {
             <Route path="/cart" element={<Cart />} />
             <Route path="/guest-checkout" element={<GuestCheckout />} />
             <Route path="/sign-in" element={<SignIn />} />
-            <Route path="/create-account" element={<CreateAccount />} />
+            <Route path="/create-account" element={<CreateAccount onSuccess={() => console.log("Account created")} />} />
+            <Route path="/password-verification" element={<PasswordVerification onSuccess={() => console.log("Password verified")} />} />
+            <Route path="/edit-profile" element={<EditProfile onSuccess={() => {}} />} />
             <Route path="/user-checkout" element={<UserCheckout />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
-            <Route path="/password-verification" element={<PasswordVerification />} />
             <Route path="/account" element={<Account />} />
             <Route path="/my-orders" element={<MyOrders />} />
             <Route path="/settings" element={<Settings />} />

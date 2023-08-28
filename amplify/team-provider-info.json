@@ -17,6 +17,9 @@
       },
       "api": {
         "ecommercespa": {}
+      },
+      "storage": {
+        "s3photos": {}
       }
     }
   }

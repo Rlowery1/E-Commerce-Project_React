@@ -1,0 +1,26 @@
+.onboarding-container {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.fade-in {
+    opacity: 1;
+}
+
+.onboarding-header {
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: 'Times New Roman', serif; /* Example of a more high-end font */
+}
+
+.brand-name {
+    font-style: italic;
+    color: #333; /* Dark gray for a more sophisticated feel */
+}
+
+.decorative-line {
+    height: 3px;
+    background: #333;
+    margin: 10px auto;
+    width: 50%;
+}

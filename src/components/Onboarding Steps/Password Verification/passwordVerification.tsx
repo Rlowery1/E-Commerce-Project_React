@@ -1,38 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, FormEvent } from 'react';
 import { Auth } from 'aws-amplify';
 import { Link } from 'react-router-dom';
 import './passwordVerification.css';
-import Header from "../../components/Header/header";
-import Footer from "../../components/Footer/footer";
+import Header from "../../Header/header";
+import Footer from "../../Footer/footer";
 
-const PasswordVerification = () => {
+interface PasswordVerificationProps {
+  onSuccess: () => void;
+}
+
+const ProgressIndicator = () => <div className="progress-indicator">Step 2 of 3</div>;
+
+
+const PasswordVerification: React.FC<PasswordVerificationProps> = ({ onSuccess }) => {
   const [username, setUsername] = useState('');
   const [verificationCode, setVerificationCode] = useState('');
   const [error, setError] = useState('');
-  const [resendCooldown, setResendCooldown] = useState(false);
 
-  const handleVerification = async (e: React.FormEvent) => {
+  const handleVerification = async (e: FormEvent) => {
     e.preventDefault();
-
     try {
-      await Auth.confirmSignUp(username, verificationCode); // Confirm the signup
+      await Auth.confirmSignUp(username, verificationCode);
+      onSuccess();
       alert("Account verified successfully! You can now log in.");
-      window.location.href = '/sign-in'; // Redirect to sign-in page
+      window.location.href = '/sign-in';
     } catch (err: any) {
-      setError("Verification failed. Please check your username and verification code.");
-    }
-  };
-
-  const handleResendCode = async () => {
-    // Disable the resend button for 30 seconds
-    setResendCooldown(true);
-    setTimeout(() => setResendCooldown(false), 30000);
-
-    try {
-      await Auth.resendSignUp(username); // Resend the verification code
-      alert("Verification code resent successfully!");
-    } catch (err: any) {
-      setError(err.message);
+      setError(`Verification failed. ${err.message}`);
     }
   };
 
@@ -40,13 +33,14 @@ const PasswordVerification = () => {
     <div>
       <Header />
       <div className="password-verification-container">
-        <h2>Email Verification</h2>
+        <ProgressIndicator />
+        <h2>One More Step!</h2>
+        <p>Enter the verification code sent to your email.</p>
         <form onSubmit={handleVerification}>
           <input type="text" placeholder="Username" onChange={e => setUsername(e.target.value)} />
           <input type="text" placeholder="Verification Code" onChange={e => setVerificationCode(e.target.value)} />
           <button type="submit">Verify</button>
         </form>
-        <button disabled={resendCooldown} onClick={handleResendCode} className="resend-code-button">Resend Code</button>
         {error && <div className="password-verification-error">{error}</div>}
         <div className="password-verification-links">
           <Link to="/sign-in">Back to Sign In</Link>
