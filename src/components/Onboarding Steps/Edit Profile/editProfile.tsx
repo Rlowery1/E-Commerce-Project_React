@@ -19,6 +19,7 @@ const EditProfile: React.FC<EditProfileProps> = ({ onSuccess }) => {
   const [userId, setUserId] = useState('');
   const [firstTimeLogin, setFirstTimeLogin] = useState(true);
   const [isLoading, setIsLoading] = useState(true);  // Set initial loading state
+  const [profilePic, setProfilePic] = useState("");
 
   const navigate = useNavigate();
 
@@ -53,6 +54,7 @@ const EditProfile: React.FC<EditProfileProps> = ({ onSuccess }) => {
       id: userId,
       name: name || "N/A",
       phone: phone || "N/A",
+      profilePic,
       firstTimeLogin: false
     };
     try {
@@ -72,18 +74,27 @@ const EditProfile: React.FC<EditProfileProps> = ({ onSuccess }) => {
     <div>
       <Header />
       <div className="edit-profile-container">
-        {(firstTimeLogin || isLoading) && <ProgressIndicator />}
-        <h1>{(firstTimeLogin || isLoading) ? "Almost There!" : "Edit Your Profile"}</h1>
-        <p>{(firstTimeLogin || isLoading) ? "Provide a little more information to complete your profile." : "Feel free to update your profile information."}</p>
-        <form onSubmit={handleUpdateProfile}>
-          <input type="text" placeholder="Name" value={name} onChange={e => setName(e.target.value)} />
-          <input type="text" placeholder="Phone" value={phone} onChange={e => setPhone(e.target.value)} />
-          <button type="submit">Update Profile</button>
-        </form>
+        <div className="progress-container">
+          {(firstTimeLogin || isLoading) && <ProgressIndicator />}
+        </div>
+        <div className="info-container">
+          <h1>{(firstTimeLogin || isLoading) ? "Almost There!" : "Edit Your Profile"}</h1>
+          <p>{(firstTimeLogin || isLoading) ? "Provide a little more information to complete your profile." : "Feel free to update your profile information."}</p>
+          <form onSubmit={handleUpdateProfile} className="profile-form">
+            <div className="form-group">
+              <input type="text" placeholder="Name" value={name} onChange={e => setName(e.target.value)} />
+            </div>
+            <div className="form-group">
+              <input type="text" placeholder="Phone" value={phone} onChange={e => setPhone(e.target.value)} />
+            </div>
+            <button type="submit" className="update-btn">Update Profile</button>
+          </form>
+        </div>
       </div>
       <Footer theme="light"/>
     </div>
   );
 };
+
 
 export default EditProfile;

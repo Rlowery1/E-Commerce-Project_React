@@ -14,7 +14,7 @@ const Account: React.FC = () => {
     <div>
       <Header />
       <div className="account-container">
-        <h1>My Account</h1>
+        <h1 className="account-title">My Account</h1>
         <div className="profile-info">
           <img src="https://i.imgur.com/GdeiDSM.jpg" alt="Profile" className="profile-image" />
           <div className="user-details">
@@ -41,9 +41,9 @@ const Account: React.FC = () => {
           </div>
         </div>
         <div className="account-links">
-          <Link to="/edit-profile">Edit Profile</Link>
-          <Link to="/settings">Settings</Link>
-          <Link to="/logout">Logout</Link>
+          <Link to="/edit-profile" className="account-link">Edit Profile</Link>
+          <Link to="/settings" className="account-link">Settings</Link>
+          <Link to="/logout" className="account-link">Logout</Link>
         </div>
       </div>
       <Footer theme="light"/>

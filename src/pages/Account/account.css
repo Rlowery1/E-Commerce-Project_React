@@ -1,38 +1,46 @@
 .account-container {
-    max-width: 900px;
-    margin: 80px auto;
-    padding: 40px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    font-family: 'Helvetica Neue', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 120vh;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://i.imgur.com/282gMeV.jpg');
+    background-size: cover;
+    color: #fff;
+}
+
+.account-title {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .profile-info {
     display: flex;
     align-items: center;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .profile-image {
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    margin-right: 30px;
-}
-
-.user-details h2 {
-    margin: 0;
-    font-size: 28px;
-    color: #333;
+    margin-right: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .user-details p {
-    margin: 5px 0;
-    font-size: 18px;
-    color: #666;
+    margin: 5px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+.user-details h2 {
+    margin: 5px;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .account-sections {
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
@@ -41,16 +49,29 @@
 .account-section {
     flex: 1;
     min-width: 40%;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .account-links {
     display: flex;
     gap: 30px;
-    margin-top: 40px;
+    margin-top: 150px;
 }
 
-.account-links a {
+.account-link {
     text-decoration: none;
-    color: #333;
-    font-size: 20px;
+    color: #fff;
+    font-size: 1.2em;
+    padding: 10px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.account-link:hover {
+    background: #fff;
+    color: #000;
 }
