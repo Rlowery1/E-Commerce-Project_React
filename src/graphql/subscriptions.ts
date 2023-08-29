@@ -13,6 +13,7 @@ export const onCreateUserProfile = /* GraphQL */ `
       name
       email
       phone
+      firstTimeLogin
       address {
         street
         city
@@ -43,6 +44,7 @@ export const onUpdateUserProfile = /* GraphQL */ `
       name
       email
       phone
+      firstTimeLogin
       address {
         street
         city
@@ -73,6 +75,7 @@ export const onDeleteUserProfile = /* GraphQL */ `
       name
       email
       phone
+      firstTimeLogin
       address {
         street
         city

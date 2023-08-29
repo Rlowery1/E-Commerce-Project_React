@@ -91,6 +91,7 @@ export const createUserProfile = /* GraphQL */ `
       name
       email
       phone
+      firstTimeLogin
       address {
         street
         city
@@ -121,6 +122,7 @@ export const updateUserProfile = /* GraphQL */ `
       name
       email
       phone
+      firstTimeLogin
       address {
         street
         city
@@ -151,6 +153,7 @@ export const deleteUserProfile = /* GraphQL */ `
       name
       email
       phone
+      firstTimeLogin
       address {
         street
         city

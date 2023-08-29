@@ -10,6 +10,7 @@ export const getUserProfile = /* GraphQL */ `
       name
       email
       phone
+      firstTimeLogin
       address {
         street
         city
@@ -42,6 +43,7 @@ export const listUserProfiles = /* GraphQL */ `
         name
         email
         phone
+        firstTimeLogin
         address {
           street
           city

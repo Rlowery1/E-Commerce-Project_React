@@ -144,6 +144,7 @@ export type CreateUserProfileInput = {
   name?: string | null,
   email?: string | null,
   phone?: string | null,
+  firstTimeLogin?: boolean | null,
   address?: AddressInput | null,
   birthDate?: string | null,
   gender?: string | null,
@@ -164,6 +165,7 @@ export type ModelUserProfileConditionInput = {
   name?: ModelStringInput | null,
   email?: ModelStringInput | null,
   phone?: ModelStringInput | null,
+  firstTimeLogin?: ModelBooleanInput | null,
   birthDate?: ModelStringInput | null,
   gender?: ModelStringInput | null,
   preferences?: ModelStringInput | null,
@@ -180,6 +182,7 @@ export type UserProfile = {
   name?: string | null,
   email?: string | null,
   phone?: string | null,
+  firstTimeLogin?: boolean | null,
   address?: Address | null,
   birthDate?: string | null,
   gender?: string | null,
@@ -205,6 +208,7 @@ export type UpdateUserProfileInput = {
   name?: string | null,
   email?: string | null,
   phone?: string | null,
+  firstTimeLogin?: boolean | null,
   address?: AddressInput | null,
   birthDate?: string | null,
   gender?: string | null,
@@ -222,6 +226,7 @@ export type ModelUserProfileFilterInput = {
   name?: ModelStringInput | null,
   email?: ModelStringInput | null,
   phone?: ModelStringInput | null,
+  firstTimeLogin?: ModelBooleanInput | null,
   birthDate?: ModelStringInput | null,
   gender?: ModelStringInput | null,
   preferences?: ModelStringInput | null,
@@ -285,6 +290,7 @@ export type ModelSubscriptionUserProfileFilterInput = {
   name?: ModelSubscriptionStringInput | null,
   email?: ModelSubscriptionStringInput | null,
   phone?: ModelSubscriptionStringInput | null,
+  firstTimeLogin?: ModelSubscriptionBooleanInput | null,
   birthDate?: ModelSubscriptionStringInput | null,
   gender?: ModelSubscriptionStringInput | null,
   preferences?: ModelSubscriptionStringInput | null,
@@ -323,6 +329,11 @@ export type ModelSubscriptionStringInput = {
   notIn?: Array< string | null > | null,
 };
 
+export type ModelSubscriptionBooleanInput = {
+  ne?: boolean | null,
+  eq?: boolean | null,
+};
+
 export type ModelSubscriptionProductFilterInput = {
   id?: ModelSubscriptionIDInput | null,
   name?: ModelSubscriptionStringInput | null,
@@ -352,11 +363,6 @@ export type ModelSubscriptionFloatInput = {
   between?: Array< number | null > | null,
   in?: Array< number | null > | null,
   notIn?: Array< number | null > | null,
-};
-
-export type ModelSubscriptionBooleanInput = {
-  ne?: boolean | null,
-  eq?: boolean | null,
 };
 
 export type CreateProductMutationVariables = {
@@ -453,6 +459,7 @@ export type CreateUserProfileMutation = {
     name?: string | null,
     email?: string | null,
     phone?: string | null,
+    firstTimeLogin?: boolean | null,
     address?:  {
       __typename: "Address",
       street?: string | null,
@@ -484,6 +491,7 @@ export type UpdateUserProfileMutation = {
     name?: string | null,
     email?: string | null,
     phone?: string | null,
+    firstTimeLogin?: boolean | null,
     address?:  {
       __typename: "Address",
       street?: string | null,
@@ -515,6 +523,7 @@ export type DeleteUserProfileMutation = {
     name?: string | null,
     email?: string | null,
     phone?: string | null,
+    firstTimeLogin?: boolean | null,
     address?:  {
       __typename: "Address",
       street?: string | null,
@@ -545,6 +554,7 @@ export type GetUserProfileQuery = {
     name?: string | null,
     email?: string | null,
     phone?: string | null,
+    firstTimeLogin?: boolean | null,
     address?:  {
       __typename: "Address",
       street?: string | null,
@@ -579,6 +589,7 @@ export type ListUserProfilesQuery = {
       name?: string | null,
       email?: string | null,
       phone?: string | null,
+      firstTimeLogin?: boolean | null,
       address?:  {
         __typename: "Address",
         street?: string | null,
@@ -670,6 +681,7 @@ export type OnCreateUserProfileSubscription = {
     name?: string | null,
     email?: string | null,
     phone?: string | null,
+    firstTimeLogin?: boolean | null,
     address?:  {
       __typename: "Address",
       street?: string | null,
@@ -701,6 +713,7 @@ export type OnUpdateUserProfileSubscription = {
     name?: string | null,
     email?: string | null,
     phone?: string | null,
+    firstTimeLogin?: boolean | null,
     address?:  {
       __typename: "Address",
       street?: string | null,
@@ -732,6 +745,7 @@ export type OnDeleteUserProfileSubscription = {
     name?: string | null,
     email?: string | null,
     phone?: string | null,
+    firstTimeLogin?: boolean | null,
     address?:  {
       __typename: "Address",
       street?: string | null,

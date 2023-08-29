@@ -19,14 +19,6 @@ const CreateAccount: React.FC<CreateAccountProps> = ({ onSuccess }) => {
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
 
-  const createNewUserProfile = async (username: string) => {
-    const newProfile = {
-      username,
-      phone: "",  // Initialize with empty or default values
-      profilePic: ""
-    };
-    await API.graphql(graphqlOperation(createUserProfile, { input: newProfile }));
-  };
 
   const handleSignUp = async (e: FormEvent) => {
     e.preventDefault();

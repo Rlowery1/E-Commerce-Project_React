@@ -5,6 +5,7 @@ import { createUserProfile } from '../../graphql/mutations';
 import './signIn.css';
 import Header from "../../components/Header/header";
 import Footer from "../../components/Footer/footer";
+import {getUserProfile} from "../../graphql/queries";
 
 const SignIn = () => {
   const [username, setUsername] = useState('');
@@ -17,8 +18,27 @@ const SignIn = () => {
       phone: "",  // Initialize with empty or default values
       profilePic: ""
     };
-    await API.graphql(graphqlOperation(createUserProfile, { input: newProfile }));
+    const result: any = await API.graphql(graphqlOperation(createUserProfile, { input: newProfile }));
+    const newId = result.data.createUserProfile.id;  // Extract the new ID from the result
+    localStorage.setItem('currentUserId', newId);  // Store the ID in local storage
   };
+
+
+  const checkUserProfile = async () => {
+    try {
+      const userProfileData: any = await API.graphql(graphqlOperation(getUserProfile, { id: username }));
+      const firstTimeLogin = userProfileData.data.getUserProfile.firstTimeLogin;
+
+      if (firstTimeLogin) {
+        window.location.href = '/edit-profile';
+      } else {
+        window.location.href = '/';
+      }
+    } catch (error) {
+      console.log('Error fetching user profile:', error);
+    }
+  };
+
 
   const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -48,6 +68,7 @@ const SignIn = () => {
         // Redirect to the home page for regular users
         window.location.href = '/';
       }
+      checkUserProfile();
     } catch (err: any) {
       setError(err.message);
     }
