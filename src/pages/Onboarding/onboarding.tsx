@@ -2,7 +2,7 @@
   import CreateAccount from "../../components/Onboarding Steps/Create Account/createAccount";
   import PasswordVerification from "../../components/Onboarding Steps/Password Verification/passwordVerification";
   import EditProfile from "../../components/Onboarding Steps/Edit Profile/editProfile";
-  import './onboarding.css';  // Importing the new CSS file
+  import './onboarding.css';
 
   const Onboarding = () => {
     const [step, setStep] = useState(1);

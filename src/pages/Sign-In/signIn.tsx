@@ -16,7 +16,8 @@ const SignIn = () => {
     const newProfile = {
       username,
       phone: "",  // Initialize with empty or default values
-      profilePic: ""
+      profilePic: "",
+      firstTimeLogin: true  // Initialize to true here
     };
     const result: any = await API.graphql(graphqlOperation(createUserProfile, { input: newProfile }));
     const newId = result.data.createUserProfile.id;  // Extract the new ID from the result
@@ -24,10 +25,13 @@ const SignIn = () => {
   };
 
 
+
   const checkUserProfile = async () => {
     try {
       const userProfileData: any = await API.graphql(graphqlOperation(getUserProfile, { id: username }));
       const firstTimeLogin = userProfileData.data.getUserProfile.firstTimeLogin;
+
+      console.log("First Time Login from Database:", firstTimeLogin); // Debugging line
 
       if (firstTimeLogin) {
         window.location.href = '/edit-profile';
@@ -38,6 +42,7 @@ const SignIn = () => {
       console.log('Error fetching user profile:', error);
     }
   };
+
 
 
   const handleSignIn = async (e: React.FormEvent) => {
