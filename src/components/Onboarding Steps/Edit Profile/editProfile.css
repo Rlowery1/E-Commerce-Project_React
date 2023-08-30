@@ -44,11 +44,18 @@
     margin-bottom: 20px;
 }
 
-input[type="text"] {
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="file"] {
     padding: 10px;
     border: none;
     border-radius: 20px;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+input[type="file"] {
+    cursor: pointer;
 }
 
 .update-btn {
@@ -64,3 +71,69 @@ input[type="text"] {
 .update-btn:hover {
     background: #333;
 }
+
+.custom-file-label,
+.custom-date-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    color: #999;
+    transition: all 0.3s ease;
+}
+
+.custom-file-input,
+.custom-date-input {
+    padding: 10px;
+    position: relative;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.custom-file-input:focus + .custom-file-label,
+.custom-date-input:focus + .custom-date-label {
+    color: #000;
+}
+
+/* Additional styles to keep label and input together */
+.form-group {
+    position: relative;
+}
+
+/* Hide the default file input button */
+.custom-file-input::-webkit-file-upload-button {
+    display: none;
+}
+
+.form-group.custom-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder {
+    color: #000;
+    opacity: 1; /* Firefox */
+}
+.custom-file-label,
+.custom-date-label {
+    position: static;
+    margin-bottom: 5px;
+    color: #000000;
+}
+
+.custom-file-input,
+.custom-date-input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    background-color: #ffffff;
+}
+
+
+
