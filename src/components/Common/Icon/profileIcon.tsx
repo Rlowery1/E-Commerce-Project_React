@@ -4,12 +4,31 @@ import './profileIcon.css';
 
 interface Props {
   className?: string;
+  profileImage: string;
 }
 
-const ProfileIcon: React.FC<Props> = () => {
+const ProfileIcon: React.FC<Props> = ({ profileImage }) => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userProfileImage, setUserProfileImage] = useState('https://i.imgur.com/GdeiDSM.jpg'); // Default image
+
+  useEffect(() => {
+    const fetchProfileImage = async () => {
+      try {
+        const user = await Auth.currentAuthenticatedUser();
+        setIsLoggedIn(true);
+        if (user && user.profileImage) {
+          setUserProfileImage(user.profileImage);
+        } else if (profileImage) {
+          setUserProfileImage(profileImage);
+        }
+      } catch {
+        setIsLoggedIn(false);
+      }
+    };
+    fetchProfileImage();
+  }, [profileImage]);
+
 
   useEffect(() => {
     checkUserAuthentication();
@@ -28,16 +47,18 @@ const ProfileIcon: React.FC<Props> = () => {
     }
   };
 
-  // Function to toggle the profile dropdown
   const toggleProfile = () => {
     setIsProfileOpen(!isProfileOpen);
   };
 
   const profileImageStyle = {
     backgroundImage: `url('${userProfileImage}')`,
-    width: '50px', // Default width
-    height: '50px' // Default height
+    width: '50px',
+    height: '50px'
   };
+
+
+
 
   return (
     <div className="profile-icon" onClick={toggleProfile}>
@@ -61,4 +82,3 @@ const ProfileIcon: React.FC<Props> = () => {
 };
 
 export default ProfileIcon;
-

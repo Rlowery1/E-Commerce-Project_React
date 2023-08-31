@@ -5,11 +5,10 @@ import "./header.styles.css";
 import logoPng from '../../assets/images/logo.png';
 import { Link } from 'react-router-dom';
 import { CartItem } from '../../redux/actions/cartSlice';
-import {RootState} from "../../redux/store/store";
-import {useSelector} from "react-redux";
+import { useSelector } from "react-redux";
 import ProfileIcon from "../Common/Icon/profileIcon";
 import SearchBar from '../Search Bar/searchBar';
-
+import { RootState } from "../../redux/store/store";
 
 interface Props {
   className?: string;
@@ -20,21 +19,15 @@ const Header: React.FC<Props> = () => {
   const [isCollectionOpen, setIsCollectionOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isSearchActive, setIsSearchActive] = useState(false);
+  const userProfile = useSelector((state: RootState) => state.userProfile);
+  const userProfileImage = userProfile.profilePic;
 
   const cartItems = useSelector((state: RootState) => state.cart.items);
 
-  // Calculate the total items in the cart
   const totalItemsInCart = cartItems.reduce((total, item) => total + item.quantity, 0);
-
-  // Calculate the Subtotal
   const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
-
-
-  // Calculate the Tax (e.g., 10%)
   const taxRate = 0.10;
   const tax = subtotal * taxRate;
-
-  // Calculate the Total
   const total = subtotal + tax;
 
   const toggleMenu = () => {
@@ -84,42 +77,42 @@ const Header: React.FC<Props> = () => {
       <div className="header-right">
         <div className="right-container">
           <div className={`profile-container ${isSearchActive ? "fade-out" : "fade-in"}`}>
-            <ProfileIcon className={`profile-instance`} />
+            <ProfileIcon className={`profile-instance`} profileImage={userProfileImage} />
           </div>
           <SearchBar onSearchToggle={handleSearchToggle} />
           <div className="shopping-bag" onClick={toggleCart}>
             <ShoppingBag className="shopping-bag-icon" />
             {totalItemsInCart > 0 && (
-              <span className="cart-item-count">{totalItemsInCart}</span> // Use the totalItemsInCart here
+              <span className="cart-item-count">{totalItemsInCart}</span>
             )}
             {isCartOpen && (
               <div className="cart-popout">
-                  {cartItems.map((item: CartItem) => (
-                    <div key={item.id} className="cart-item">
-                      <img src={item.imageUrl} alt={item.name} />
-                      <div className="cart-item-name">{item.name}</div>
-                      <div>{item.price}</div>
-                    </div>
-                  ))}
-                  <div className="cart-summary">
-                    <div className="cart-summary-title">Subtotal:</div>
-                    <div className="cart-summary-value">${subtotal.toFixed(2)}</div>
+                {cartItems.map((item: CartItem) => (
+                  <div key={item.id} className="cart-item">
+                    <img src={item.imageUrl} alt={item.name} />
+                    <div className="cart-item-name">{item.name}</div>
+                    <div>{item.price}</div>
                   </div>
-                  <div className="cart-summary">
-                    <div className="cart-summary-title">Tax:</div>
-                    <div className="cart-summary-value">${tax.toFixed(2)}</div>
-                  </div>
-                  <div className="cart-summary">
-                    <div className="cart-summary-title">Total:</div>
-                    <div className="cart-summary-value">${total.toFixed(2)}</div>
-                  </div>
-                  <Link to="/cart" className="view-cart">View Cart</Link>
+                ))}
+                <div className="cart-summary">
+                  <div className="cart-summary-title">Subtotal:</div>
+                  <div className="cart-summary-value">${subtotal.toFixed(2)}</div>
                 </div>
-                )}
-            </div>
+                <div className="cart-summary">
+                  <div className="cart-summary-title">Tax:</div>
+                  <div className="cart-summary-value">${tax.toFixed(2)}</div>
+                </div>
+                <div className="cart-summary">
+                  <div className="cart-summary-title">Total:</div>
+                  <div className="cart-summary-value">${total.toFixed(2)}</div>
+                </div>
+                <Link to="/cart" className="view-cart">View Cart</Link>
+              </div>
+            )}
           </div>
         </div>
       </div>
+    </div>
   );
 };
 

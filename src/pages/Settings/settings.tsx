@@ -54,6 +54,7 @@ const Settings: React.FC = () => {
       id: "userId",
       email,
       address,
+      phone
     };
 
     try {
